@@ -6,6 +6,8 @@ public class MoveMonster : MonoBehaviour
 {
     public int speed;
 
+    
+
     [SerializeField]
     GameObject player;
 
