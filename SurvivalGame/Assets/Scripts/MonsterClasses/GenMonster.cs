@@ -12,6 +12,7 @@ public class GenMonster : MonoBehaviour
     private float[] monsterPercentages;
     [SerializeField]
     GameObject[] monsters;
+    public int count;
     Timer timer;
     // Start is called before the first frame update
     void Start()
@@ -29,22 +30,23 @@ public class GenMonster : MonoBehaviour
     {
         for (int j = 0; j < 10; j++)
         {
-            float randomPercentage = Random.Range(0f, 100);
+            float randomPercentage = Random.Range(0, 100f);
             for (int i = 0; i < monsters.Length; i++)
             {
-                if (randomPercentage <= 0)
+                if (randomPercentage < 1f)
                 {
+                    count++;
                     if (Random.Range(1, 3) == 1)
                     {
-                        float y = Random.Range(minY, maxY);
+                        float y = Random.Range(minY, maxY+1);
                         y -= (y + maxY);
-                        Instantiate(monsters[i], new Vector2(Random.Range(minX, maxX), y), Quaternion.identity);
+                        Instantiate(monsters[i], new Vector2(Random.Range(minX, maxX+1), y), Quaternion.identity);
                     }
                     else
                     {
-                        float x = Random.Range(minX, maxX);
+                        float x = Random.Range(minX, maxX+1);
                         x -= (x + maxX);
-                        Instantiate(monsters[i], new Vector2(x, Random.Range(minY, maxY)), Quaternion.identity); 
+                        Instantiate(monsters[i], new Vector2(x, Random.Range(minY, maxY+1)), Quaternion.identity); 
                     }
                     break;
                 }
