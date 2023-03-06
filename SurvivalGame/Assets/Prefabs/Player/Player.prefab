@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5275936908292497243
 Transform:
@@ -96,13 +96,13 @@ GameObject:
   - component: {fileID: -2025225401620677476}
   - component: {fileID: 5064897558620214610}
   - component: {fileID: 1524524692277136427}
-  - component: {fileID: -3289654379740961794}
+  - component: {fileID: -9223266192735668452}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2954025472175402143
 Transform:
@@ -112,7 +112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3317303456715365865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7776, y: -0.5612, z: 0}
+  m_LocalPosition: {x: -0.7776, y: -0.5612, z: 2}
   m_LocalScale: {x: 0.4268, y: 1.4829963, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -160,7 +160,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: d2e08914860a0684baa146b5a8df3c59, type: 3}
   m_Color: {r: 0, g: 0.32460213, b: 1, a: 1}
   m_FlipX: 0
@@ -247,7 +247,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-3289654379740961794
+--- !u!114 &-9223266192735668452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -256,6 +256,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3317303456715365865}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962a8a980c4dab34b93c5e47238ba3ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ce57c618685e754c93c83abd8639f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 5
