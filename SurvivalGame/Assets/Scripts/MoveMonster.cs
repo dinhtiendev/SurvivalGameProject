@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveMonster : MonoBehaviour
 {
-    public int speed = 5;
+    public int speed;
 
     
 
