@@ -6,14 +6,15 @@ public class MoveMonster : MonoBehaviour
 {
     public int speed;
 
-    [SerializeField]
-    GameObject player;
+    
+
+    private GameObject player;
 
     private float distance;
     // Start is called before the first frame update
     void Start()
     {
-
+        player = GameObject.FindGameObjectWithTag("player");
     }
 
     // Update is called once per frame
