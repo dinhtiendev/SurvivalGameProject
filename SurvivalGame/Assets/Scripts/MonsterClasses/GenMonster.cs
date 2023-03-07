@@ -39,9 +39,29 @@ public class GenMonster : MonoBehaviour
                 randomPercentage -= monsterPercentages[i];
                 if (randomPercentage < 1)
                 {
-                    float y = Random.Range(minY, maxY+1);
-                    y -= (y + maxY);
-                    Instantiate(monsters[i], new Vector2(Random.Range(minX, maxX+1), y), Quaternion.identity);
+                    int random = Random.Range(1, 5);
+                    float x, y;
+                    if(random == 1)
+                    {
+                        y = maxY;
+                        x = Random.Range(minX, maxX);
+                    }
+                    else if (random == 2)
+                    {
+                        x = maxX;
+                        y = Random.Range(minY, maxY);
+                    }
+                    else if(random == 3)
+                    {
+                        y = minY;
+                        x = Random.Range(minX, maxX);
+                    }
+                    else
+                    {
+                        x = minX;
+                        y = Random.Range(minY, maxY);
+                    }
+                    Instantiate(monsters[i], new Vector2(x, y), Quaternion.identity);
                     break;
                 }
                 
