@@ -6,8 +6,6 @@ public class MoveMonster : MonoBehaviour
 {
     public int speed;
 
-    
-
     private GameObject player;
 
     private float distance;
