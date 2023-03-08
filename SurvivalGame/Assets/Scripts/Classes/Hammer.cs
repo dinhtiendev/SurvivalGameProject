@@ -7,7 +7,7 @@ public class Hammer : MonoBehaviour
     public int Damanaged {get; set;}
     public int CoolDown {get; set;}
     public int TimeBack {get; set;}
-    public int Speed {get; set;}
+    public float Speed {get; set;}
     public int Level {get; set;}
 
     public Hammer()
@@ -17,5 +17,11 @@ public class Hammer : MonoBehaviour
         TimeBack = 2;
         Speed = 10;
         Level = 1;
+    }
+
+    public void Move()
+    {
+        Rigidbody2D rg2d = GetComponent<Rigidbody2D>();
+        rg2d.velocity = Manager.instance.player.transform.forward * Speed;
     }
 }
