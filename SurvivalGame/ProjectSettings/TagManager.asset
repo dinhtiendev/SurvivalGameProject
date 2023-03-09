@@ -6,6 +6,7 @@ TagManager:
   tags:
   - tree
   - player
+  - Bullet
   layers:
   - Default
   - TransparentFX
