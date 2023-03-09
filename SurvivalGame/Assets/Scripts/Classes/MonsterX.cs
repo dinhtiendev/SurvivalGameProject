@@ -13,4 +13,6 @@ public class MonsterX : MonoBehaviour
         Damanaged = 5;
         Speed = 7;
     }
+
+
 }

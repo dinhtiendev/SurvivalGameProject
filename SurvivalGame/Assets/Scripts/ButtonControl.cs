@@ -23,6 +23,22 @@ public class ButtonControl : MonoBehaviour
 
     public void HammerSkills()
     {
-        //hammer = Instantiate(hammerPrefabs, player.transform.position + player.transform.localScale, Quaternion.identity);
+        Player player = Manager.instance.player;
+        hammer = Instantiate(hammerPrefabs, player.transform.position, Quaternion.identity);
+        hammer.Move();
+    }
+
+    public void ThunderSkills()
+    {
+        Player player = Manager.instance.player;
+        thunder = Instantiate(thunderPrefabs, player.transform.position, Quaternion.identity);
+        thunder.Display();
+    }
+
+    public void ShieldSkills()
+    {
+        Player player = Manager.instance.player;
+        shield = Instantiate(shieldPrefabs, player.transform.position, Quaternion.identity);
+        shield.Display();
     }
 }
