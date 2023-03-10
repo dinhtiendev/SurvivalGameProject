@@ -14,4 +14,9 @@ public class Thunder : MonoBehaviour
         CoolDown = 3;
         Level = 1;
     }
+
+    public void Display()
+    {
+        Rigidbody2D rg2d = GetComponent<Rigidbody2D>();
+    }
 }

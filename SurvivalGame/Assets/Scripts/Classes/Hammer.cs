@@ -22,6 +22,6 @@ public class Hammer : MonoBehaviour
     public void Move()
     {
         Rigidbody2D rg2d = GetComponent<Rigidbody2D>();
-        rg2d.velocity = Manager.instance.player.transform.forward * Speed;
+        rg2d.velocity = new Vector2(Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad), Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad)) * Speed;
     }
 }
