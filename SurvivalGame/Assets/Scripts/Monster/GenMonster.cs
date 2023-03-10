@@ -6,10 +6,10 @@ public class GenMonster : MonoBehaviour
 {
     private int levelPlayer;
 
-    private float minX = -36;
-    private float maxX = 36;
-    private float minY = -22;
-    private float maxY = 19;
+    private float minX = -38;
+    private float maxX = 38;
+    private float minY = -25;
+    private float maxY = 23;
     private int [] monsterPercentages;
 
     [SerializeField]
