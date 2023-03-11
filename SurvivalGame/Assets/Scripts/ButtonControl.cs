@@ -1,5 +1,6 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ButtonControl : MonoBehaviour
@@ -30,9 +31,50 @@ public class ButtonControl : MonoBehaviour
 
     public void ThunderSkills()
     {
+
         Player player = Manager.instance.player;
-        thunder = Instantiate(thunderPrefabs, player.transform.position, Quaternion.identity);
-        thunder.Display();
+        Vector2 v = player.transform.position;
+        GameObject[] monster = GameObject.FindGameObjectsWithTag("tanker");
+        GameObject[] monster2 = GameObject.FindGameObjectsWithTag("flasher");
+        GameObject[] monster3 = GameObject.FindGameObjectsWithTag("monster");
+        if (monster == null)
+        {
+            monster = new GameObject[0];
+        }
+        if (monster2 != null)
+        {
+            monster = monster.Concat(monster2).ToArray();
+        }
+        if (monster3 != null)
+        {
+            monster = monster.Concat(monster3).ToArray();
+        }
+        if (monster.Length > 5)
+        {
+            for (int i = 0; i < monster.Length - 1; i++)
+            {
+                for (int j = 0; j < monster.Length - i - 1; j++)
+                {
+                    if (Vector2.Distance(v, monster[j].transform.position) > Vector2.Distance(v, monster[j + 1].transform.position))
+                    {
+                        GameObject temp = monster[j];
+                        monster[j] = monster[j + 1];
+                        monster[j + 1] = temp;
+                    }
+                }
+            }
+        }
+        for (int j = 0; j < monster.Length; j++)
+        {
+            if (j > 4)
+            {
+                break;
+            }
+            // create 5 thunder on monster's head that closest
+            thunder = Instantiate(thunderPrefabs, monster[j].transform.position + (Vector3.up*1.5f), Quaternion.identity);
+            thunder.Display();
+        }
+        
     }
 
     public void ShieldSkills()

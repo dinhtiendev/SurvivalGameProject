@@ -76,7 +76,7 @@ public class GenMonster : MonoBehaviour
         if (!timer.isRunning())
         {
             GenRandomMonster();
-            timer.Duration(15);
+            timer.Duration(20);
             timer.run();
         }
         }

@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     {
         Health = 50;
         Damanaged = 25;
-        Speed = 10;
+        Speed = 20;
         Level = 1;
         Experience = 100;
     }
