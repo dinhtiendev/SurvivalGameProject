@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
-        if (collision.gameObject.CompareTag("MonsterFlash"))
+        if (collision.gameObject.CompareTag("flash"))
         {
             MonsterFlash monster = collision.gameObject.GetComponent<MonsterFlash>();
             monster.Health -= Damanaged;
@@ -49,7 +49,7 @@ public class Bullet : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
-        if (collision.gameObject.CompareTag("MonsterTanker"))
+        if (collision.gameObject.CompareTag("tanker"))
         {
             MonsterTanker monster = collision.gameObject.GetComponent<MonsterTanker>();
             monster.Health -= Damanaged;
@@ -59,7 +59,7 @@ public class Bullet : MonoBehaviour
             }
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.CompareTag("MonsterX"))
+        if (collision.gameObject.CompareTag("monster"))
         {
             MonsterX monster = collision.gameObject.GetComponent<MonsterX>();
             monster.Health -= Damanaged;

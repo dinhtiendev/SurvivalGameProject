@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4145793004356768142}
   - component: {fileID: 1021052812538884983}
+  - component: {fileID: 3683767067835194352}
   - component: {fileID: -207364090572690815}
   - component: {fileID: 6240698430088830805}
-  - component: {fileID: 3683767067835194352}
   m_Layer: 0
   m_Name: MonsterX
   m_TagString: monster
@@ -88,31 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-207364090572690815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5984932033400519279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e282070107f5c4c4d86c091812bc35d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6240698430088830805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5984932033400519279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8eeed5e9b1a07543a09d31811fdf3ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
 --- !u!60 &3683767067835194352
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -182,6 +157,31 @@ PolygonCollider2D:
       - {x: 0.30049565, y: 0.41770566}
       - {x: 0.15610707, y: 0.48033714}
   m_UseDelaunayMesh: 0
+--- !u!114 &-207364090572690815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5984932033400519279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e282070107f5c4c4d86c091812bc35d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6240698430088830805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5984932033400519279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8eeed5e9b1a07543a09d31811fdf3ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
 --- !u!1 &8339211595012033371
 GameObject:
   m_ObjectHideFlags: 0

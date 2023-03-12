@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: -419621377512806492}
   - component: {fileID: 2693087939355886302}
   - component: {fileID: -1872975693905792876}
-  - component: {fileID: -8724333372589630610}
   m_Layer: 0
   m_Name: MonsterFlash
   m_TagString: flasher
@@ -251,15 +250,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
---- !u!114 &-8724333372589630610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5766778223195546518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e64ccd3d695b9804b8d9a9522ca8fd46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
