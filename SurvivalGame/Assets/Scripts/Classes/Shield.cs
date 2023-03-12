@@ -40,27 +40,5 @@ public class Shield : MonoBehaviour
             collider.isTrigger = false;
         }
     }
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        GameObject[] monster = GameObject.FindGameObjectsWithTag("tanker");
-        GameObject[] monster2 = GameObject.FindGameObjectsWithTag("flasher");
-        GameObject[] monster3 = GameObject.FindGameObjectsWithTag("monster");
-        for (int i = 0; i < monster.Length; i++ )
-        {
-            Rigidbody2D r = monster[i].gameObject.GetComponent<Rigidbody2D>();
-            r.velocity= Vector3.zero;
-        }
-        for (int i = 0; i < monster2.Length; i++)
-        {
-            Rigidbody2D r = monster2[i].gameObject.GetComponent<Rigidbody2D>();
-            r.velocity = Vector3.zero;
-        }
-    
-        for (int i = 0; i < monster3.Length; i++)
-        {
-            Rigidbody2D r = monster3[i].gameObject.GetComponent<Rigidbody2D>();
-            r.velocity = Vector3.zero;
-        }
-    
-    }
+   
 }
