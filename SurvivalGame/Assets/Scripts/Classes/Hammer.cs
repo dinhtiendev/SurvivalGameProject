@@ -36,11 +36,12 @@ public class Hammer : MonoBehaviour
 
     public Hammer()
     {
-        Damanaged = 25 * 2;
+        Level = 1;
+        Damanaged = 15 * 2 + Mathf.RoundToInt(Damanaged * (Level - 1) * 0.25f);
         CoolDown = 5;
         TimeBack = 2;
         Speed = 10;
-        Level = 1;
+        
     }
 
     public void Move()
@@ -48,5 +49,37 @@ public class Hammer : MonoBehaviour
         timer.Duration(TimeBack);
         timer.run();
         rg2d.velocity = new Vector2(Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad), Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad)) * Speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.CompareTag("flasher"))
+        {
+            MonsterFlash monster = collision.gameObject.GetComponent<MonsterFlash>();
+            monster.Health -= Damanaged;
+            if (monster.Health <= 0)
+            {
+                Destroy(collision.gameObject);
+            }
+        }
+        else if (collision.gameObject.CompareTag("tanker"))
+        {
+            MonsterTanker monster = collision.gameObject.GetComponent<MonsterTanker>();
+            monster.Health -= Damanaged;
+            if (monster.Health <= 0)
+            {
+                Destroy(collision.gameObject);
+            }
+        }
+        else if (collision.gameObject.CompareTag("monster"))
+        {
+            MonsterX monster = collision.gameObject.GetComponent<MonsterX>();
+            monster.Health -= Damanaged;
+            if (monster.Health <= 0)
+            {
+                Destroy(collision.gameObject);
+            }
+        }
     }
 }

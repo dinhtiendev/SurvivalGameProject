@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
 
     public Bullet()
     {
-        Damanaged = 25;
+        Damanaged = 20;
         Speed = 10 * 5f;
     }
 
@@ -40,34 +40,30 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
-        //if (collision.gameObject.CompareTag("MonsterFlash"))
-        //{
-        //    MonsterFlash monster = collision.gameObject.GetComponent<MonsterFlash>();
-        //    monster.Health -= Damanaged;
-        //    if (monster.Health <= 0)
-        //    {
-        //        Destroy(collision.gameObject);
-        //    }
-        //}
-        //if (collision.gameObject.CompareTag("MonsterTanker"))
-        //{
-        //    MonsterTanker monster = collision.gameObject.GetComponent<MonsterTanker>();
-        //    monster.Health -= Damanaged;
-        //    if (monster.Health <= 0)
-        //    {
-        //        Destroy(collision.gameObject);
-        //    }
-        //    Destroy(collision.gameObject);
-        //}
-        //if (collision.gameObject.CompareTag("MonsterX"))
-        //{
-        //    MonsterX monster = collision.gameObject.GetComponent<MonsterX>();
-        //    monster.Health -= Damanaged;
-        //    if (monster.Health <= 0)
-        //    {
-        //        Destroy(collision.gameObject);
-        //    }
-        //    Destroy(collision.gameObject);
-        //}
+        if (collision.gameObject.CompareTag("flasher"))
+        {
+            MonsterFlash monster = collision.gameObject.GetComponent<MonsterFlash>();
+            monster.Health -= Damanaged;
+            if (monster.Health <= 0)
+            {
+                Destroy(collision.gameObject);
+            }
+        } else if (collision.gameObject.CompareTag("tanker"))
+        {
+            MonsterTanker monster = collision.gameObject.GetComponent<MonsterTanker>();
+            monster.Health -= Damanaged;
+            if (monster.Health <= 0)
+            {
+                Destroy(collision.gameObject);
+            }
+        } else if (collision.gameObject.CompareTag("monster"))
+        {
+            MonsterX monster = collision.gameObject.GetComponent<MonsterX>();
+            monster.Health -= Damanaged;
+            if (monster.Health <= 0)
+            {
+                Destroy(collision.gameObject);
+            }
+        }
     }
 }
