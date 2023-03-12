@@ -10,6 +10,7 @@ TagManager:
   - monster
   - tanker
   - flasher
+  - Shield
   layers:
   - Default
   - TransparentFX

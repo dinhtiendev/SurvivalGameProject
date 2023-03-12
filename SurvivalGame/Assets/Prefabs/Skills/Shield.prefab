@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 8403175581298694703}
   - component: {fileID: 6604576084929036905}
   - component: {fileID: 7944293662008755132}
-  - component: {fileID: 8639198371174753873}
   - component: {fileID: -6924065547250407528}
+  - component: {fileID: -570354750416809897}
+  - component: {fileID: -2450927909093454429}
   m_Layer: 0
   m_Name: Shield
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4565137334781151704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6275, y: 0.6587, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalPosition: {x: -0.2744, y: 0.2934, z: 0}
+  m_LocalScale: {x: 2.2863808, y: 2.3783188, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a2bd82b587262cb4f9913734bccfa1aa, type: 3}
-  m_Color: {r: 0.39215687, g: 0.39481592, b: 1, a: 1}
+  m_Color: {r: 0.8830189, g: 0.8830189, b: 0.9811321, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -119,10 +120,22 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.001505249, y: 0}
   serializedVersion: 2
-  m_Radius: 0.49999997
---- !u!50 &8639198371174753873
+  m_Radius: 0.6888806
+--- !u!114 &-6924065547250407528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4565137334781151704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c88f061685a7414dbb7395e4f64990c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &-570354750416809897
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -149,7 +162,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-6924065547250407528
+--- !u!114 &-2450927909093454429
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,6 +171,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4565137334781151704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c88f061685a7414dbb7395e4f64990c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a4e925183f7a894aa6d96b5324800d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
