@@ -73,6 +73,33 @@ public class ButtonControl : MonoBehaviour
             // create 5 thunder on monster's head that closest
             thunder = Instantiate(thunderPrefabs, monster[j].transform.position + (Vector3.up*1.5f), Quaternion.identity);
             thunder.Display();
+            if (monster[j].GetComponent<MonsterTanker>() != null)
+            {
+                MonsterTanker m = monster[j].GetComponent<MonsterTanker>();
+                m.Health -= thunder.Damanaged;
+                if (m.Health <= 0)
+                {
+                    Destroy(monster[j]);
+                }
+            }
+            else if (monster[j].GetComponent<MonsterFlash>() != null)
+            {
+                MonsterFlash m = monster[j].GetComponent<MonsterFlash>();
+                m.Health -= thunder.Damanaged;
+                if(m.Health <= 0)
+                {
+                    Destroy(monster[j]);
+                }
+            }
+            else if(monster[j].GetComponent<MonsterX>() != null)
+            {
+                MonsterX m = monster[j].GetComponent<MonsterX>();
+                m.Health -= thunder.Damanaged;
+                if (m.Health <= 0)
+                {
+                    Destroy(monster[j]);
+                }
+            }
         }
         
     }
