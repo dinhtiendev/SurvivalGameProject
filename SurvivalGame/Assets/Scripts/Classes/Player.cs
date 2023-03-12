@@ -8,7 +8,11 @@ public class Player : MonoBehaviour
     public int Damanaged {get; set;}
     public int Speed {get; set;}
     public int Level {get; set;}
-    public int Experience {get; set;}
+    public int MaxExperience {get; set;}
+    public int CurExperience {get; set; }
+
+    public HealthBar healthBar;
+    public ExpBar expBar;
 
     public Player()
     {
@@ -16,7 +20,8 @@ public class Player : MonoBehaviour
         Damanaged = 25;
         Speed = 20;
         Level = 1;
-        Experience = 100;
+        MaxExperience = 100;
+        CurExperience = 0;
     }
 
     Rigidbody2D rb;
@@ -32,6 +37,14 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        if (CurExperience >= MaxExperience)
+        {
+            LevelUp();
+        }
+        if (Health < 0)
+        {
+            Destroy();
+        }
     }
 
     public void Move()
@@ -48,5 +61,29 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector3(0f, 0f, -zAxis);
         }
         rb.MovePosition(rb.position + move * Speed * Time.deltaTime);
+    }
+
+    public void TakeExp(int exp)
+    {
+        CurExperience += exp;
+        expBar.SetExp(CurExperience);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        Health -= damage;
+        healthBar.SetHealth(Health);
+    }
+
+    public void LevelUp()
+    {
+        CurExperience -= MaxExperience;
+        expBar.SetExp(CurExperience);
+        Level += 1;
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 }

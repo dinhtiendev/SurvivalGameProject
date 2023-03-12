@@ -10,6 +10,8 @@ TagManager:
   - monster
   - tanker
   - flasher
+  - HealthBar
+  - ExpBar
   layers:
   - Default
   - TransparentFX

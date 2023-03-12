@@ -41132,7 +41132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.12047005, a: 1}
+  m_Color: {r: 0, g: 0.15721345, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -42000,9 +42000,10 @@ GameObject:
   m_Component:
   - component: {fileID: 900018357}
   - component: {fileID: 900018358}
+  - component: {fileID: 900018359}
   m_Layer: 0
   m_Name: Health bar
-  m_TagString: Untagged
+  m_TagString: HealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42081,6 +42082,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &900018359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900018356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e12f948022ded494c8abfda401a22d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 900018358}
 --- !u!4 &964741761 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2838450503716875352, guid: 198ef08399804e944b43685f030167dd, type: 3}
@@ -43255,6 +43269,8 @@ MonoBehaviour:
   score: 10
   playerPrefabs: {fileID: -4140704653007069275, guid: f84007b3ecd762b4ea651e832afb9557, type: 3}
   vsfollow: {fileID: 2067802703}
+  healthBar: {fileID: 900018359}
+  expBar: {fileID: 1859513507}
   player: {fileID: 0}
   joystick: {fileID: 0}
   zAxis: 0
@@ -43456,7 +43472,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Experience
+  m_Text: Health
 --- !u!222 &1557443271
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -44276,7 +44292,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Health
+  m_Text: Exp
 --- !u!222 &1766172501
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -44422,9 +44438,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1859513505}
   - component: {fileID: 1859513506}
+  - component: {fileID: 1859513507}
   m_Layer: 0
   m_Name: Experience bar
-  m_TagString: Untagged
+  m_TagString: ExpBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44503,6 +44520,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1859513507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859513504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653270d5e69500242af4caa303ec66bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1859513506}
 --- !u!4 &1902028918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8551773351525900035, guid: 8b1d2b7052353a04ebd1b7f9e8a19c34, type: 3}
@@ -44818,7 +44848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.057938576, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.110224724, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
