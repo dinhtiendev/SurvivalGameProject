@@ -60,7 +60,7 @@ public class Hammer : MonoBehaviour
             monster.Health -= Damanaged;
             if (monster.Health <= 0)
             {
-                Destroy(collision.gameObject);
+                monster.Destroy();
             }
         }
         else if (collision.gameObject.CompareTag("tanker"))
@@ -69,7 +69,7 @@ public class Hammer : MonoBehaviour
             monster.Health -= Damanaged;
             if (monster.Health <= 0)
             {
-                Destroy(collision.gameObject);
+                monster.Destroy();
             }
         }
         else if (collision.gameObject.CompareTag("monster"))
@@ -78,7 +78,7 @@ public class Hammer : MonoBehaviour
             monster.Health -= Damanaged;
             if (monster.Health <= 0)
             {
-                Destroy(collision.gameObject);
+                monster.Destroy();
             }
         }
     }
