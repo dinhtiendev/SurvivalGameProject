@@ -18,14 +18,17 @@ public class ButtonControl : MonoBehaviour
     public void Shot()
     {
         Player player = Manager.instance.player;
-        bullet = Instantiate(bulletPrefabs, player.transform.position, Quaternion.identity);
+        Vector3 pos = new Vector3(player.transform.position.x + Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad), player.transform.position.y + Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad), player.transform.position.z);
+        bullet = Instantiate(bulletPrefabs, pos, Quaternion.identity);
         bullet.Move();
     }
 
     public void HammerSkills()
     {
         Player player = Manager.instance.player;
-        hammer = Instantiate(hammerPrefabs, player.transform.position, Quaternion.identity);
+        Vector3 pos = new Vector3(player.transform.position.x + Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad) * 1.1f, player.transform.position.y + Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad) * 1.1f, player.transform.position.z);
+        hammer = Instantiate(hammerPrefabs, pos, Quaternion.identity);
+        hammer.transform.rotation = Quaternion.Euler(0f, 0f, -Manager.instance.zAxis);
         hammer.Move();
     }
 

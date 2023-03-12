@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     Vector2 move;
 
-    void Start()
+    void Awake()
     {
         transform.position = new Vector3(0, 0, 0);
         transform.rotation = Quaternion.identity;
