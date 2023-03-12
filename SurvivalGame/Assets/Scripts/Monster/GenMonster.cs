@@ -31,7 +31,7 @@ public class GenMonster : MonoBehaviour
 
     public void GenRandomMonster()
     {
-        for (int j = 0; j < 10; j++)
+        for (int j = 0; j < 3; j++)
         { 
             int randomPercentage = Random.Range(0, 100);
             for (int i = 0; i < monsters.Length; i++)
