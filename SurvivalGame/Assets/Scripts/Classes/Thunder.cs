@@ -15,10 +15,9 @@ public class Thunder : MonoBehaviour
 
     public Thunder()
     {
-        Damanaged = 25 * 3;
+        Damanaged = 30;
         CoolDown = 3;
         Level = 1;
-        
     }
 
     public void Display()

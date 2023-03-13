@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonControl : MonoBehaviour
 {
@@ -17,6 +18,33 @@ public class ButtonControl : MonoBehaviour
     private Hammer hammer;
     private Thunder thunder;
     private Shield shield;
+
+    public Button skillHammer;
+    public Button skillThunder;
+    public Button skillShield;
+
+    Timer timer;
+
+    private void Awake()
+    {
+        timer = GetComponent<Timer>();
+    }
+
+    private void Update()
+    {
+        if (!timer.isRunning())
+        {
+            skillHammer.enabled = true;
+        }
+        if (!timer.isRunning())
+        {
+            skillThunder.enabled = true;
+        }
+        if (!timer.isRunning())
+        {
+            skillShield.enabled = true;
+        }
+    }
 
     public void Shot()
     {
@@ -33,6 +61,7 @@ public class ButtonControl : MonoBehaviour
         hammer = Instantiate(hammerPrefabs, pos, Quaternion.identity);
         hammer.transform.rotation = Quaternion.Euler(0f, 0f, -Manager.instance.zAxis);
         hammer.Move();
+        DisableSkill(hammer.CoolDown, skillHammer);
     }
 
     public void ThunderSkills()
@@ -79,6 +108,11 @@ public class ButtonControl : MonoBehaviour
             // create 5 thunder on monster's head that closest
             thunder = Instantiate(thunderPrefabs, monster[j].transform.position + (Vector3.up*1.5f), Quaternion.identity);
             thunder.Display();
+            if (j == 0)
+            {
+                DisableSkill(thunder.CoolDown, skillThunder);
+            }
+            
             if (monster[j].GetComponent<MonsterTanker>() != null)
             {
                 MonsterTanker m = monster[j].GetComponent<MonsterTanker>();
@@ -115,6 +149,14 @@ public class ButtonControl : MonoBehaviour
         Player player = Manager.instance.player;
         shield = Instantiate(shieldPrefabs, player.transform.position, Quaternion.identity);
         shield.Display();
+        DisableSkill(shield.CoolDown, skillShield);
+    }
 
+    private void DisableSkill(int time, Button button)
+    {
+        Debug.Log("a");
+        button.enabled = false;
+        timer.Duration(time);
+        timer.run();
     }
 }
