@@ -13,6 +13,11 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     public ExpBar expBar;
 
+    private float minX = -38.5f;
+    private float maxX = 37.5f;
+    private float minY = -23.5f;
+    private float maxY = 21.5f;
+
     public Player()
     {
         Health = 50;
@@ -59,6 +64,22 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector3(0f, 0f, -zAxis);
         }
         rb.MovePosition(rb.position + move * Speed * Time.deltaTime);
+        if(gameObject.transform.position.x > maxX) 
+        {
+            gameObject.transform.position = new Vector2(maxX, gameObject.transform.position.y);
+        }
+        if (gameObject.transform.position.y > maxY)
+        {
+            gameObject.transform.position = new Vector2(gameObject.transform.position.x, maxY);
+        }
+        if (gameObject.transform.position.x < minX)
+        {
+            gameObject.transform.position = new Vector2(minX, gameObject.transform.position.y);
+        }
+        if (gameObject.transform.position.y < minY)
+        {
+            gameObject.transform.position = new Vector2(gameObject.transform.position.x, minY);
+        }
     }
 
     public void TakeExp(int exp)

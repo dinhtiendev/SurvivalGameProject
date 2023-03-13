@@ -72,4 +72,36 @@ public class Bullet : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("flasher"))
+        {
+            MonsterFlash monster = collision.gameObject.GetComponent<MonsterFlash>();
+            monster.Health -= Damanaged;
+            if (monster.Health <= 0)
+            {
+                monster.Destroy();
+            }
+        }
+        else if (collision.gameObject.CompareTag("tanker"))
+        {
+            MonsterTanker monster = collision.gameObject.GetComponent<MonsterTanker>();
+            monster.Health -= Damanaged;
+            if (monster.Health <= 0)
+            {
+                monster.Destroy();
+            }
+        }
+        else if (collision.gameObject.CompareTag("monster"))
+        {
+            MonsterX monster = collision.gameObject.GetComponent<MonsterX>();
+            monster.Health -= Damanaged;
+            if (monster.Health <= 0)
+            {
+                monster.Destroy();
+            }
+        }
+    }
 }

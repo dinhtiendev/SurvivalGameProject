@@ -36,4 +36,10 @@ public class Thunder : MonoBehaviour
         }
     }
 
+    public void LevelUp()
+    {
+        Level += 1;
+        Damanaged = 30 + Mathf.RoundToInt(Damanaged * (Level - 1) * 0.25f);
+    }
+
 }
