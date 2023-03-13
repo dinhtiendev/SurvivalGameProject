@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int Health {get; set;}
-    public int Damanaged {get; set;}
     public int Speed {get; set;}
     public int Level {get; set;}
     public int MaxExperience {get; set;}
@@ -17,8 +16,7 @@ public class Player : MonoBehaviour
     public Player()
     {
         Health = 50;
-        Damanaged = 25;
-        Speed = 20;
+        Speed = 50;
         Level = 1;
         MaxExperience = 100;
         CurExperience = 0;
@@ -66,24 +64,32 @@ public class Player : MonoBehaviour
     public void TakeExp(int exp)
     {
         CurExperience += exp;
+        Debug.Log("Experience: " + CurExperience);
         expBar.SetExp(CurExperience);
     }
 
     public void TakeDamage(int damage)
     {
         Health -= damage;
+        Debug.Log("Health: " + Health);
         healthBar.SetHealth(Health);
     }
 
     public void LevelUp()
     {
         CurExperience -= MaxExperience;
-        expBar.SetExp(CurExperience);
         Level += 1;
+        Debug.Log("Level: " + Level);
+        MaxExperience = 100 + 100 * (Level - 1) * (Level - 1);
+        expBar.SetMaxExp(MaxExperience);
+        expBar.SetExp(CurExperience);
+        Health = Mathf.RoundToInt(50 + 50 * (Level - 1) * 0.25f);
+        healthBar.SetMaxHealth(Health);
     }
 
     public void Destroy()
     {
-        Destroy(gameObject);
+        Debug.Log("Die");
+        //Destroy(gameObject);
     }
 }

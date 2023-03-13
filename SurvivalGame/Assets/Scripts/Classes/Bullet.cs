@@ -37,6 +37,12 @@ public class Bullet : MonoBehaviour
         rg2d.velocity = new Vector2(Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad), Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad)) * Speed;
     }
 
+    public void LevelUp()
+    {
+        Player player = Manager.instance.player;
+        Damanaged = Mathf.RoundToInt(20 + 20 * (player.Level - 1) * 0.25f);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);

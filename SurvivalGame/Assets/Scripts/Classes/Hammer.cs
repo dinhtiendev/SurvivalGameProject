@@ -37,7 +37,7 @@ public class Hammer : MonoBehaviour
     public Hammer()
     {
         Level = 1;
-        Damanaged = 15 * 2 + Mathf.RoundToInt(Damanaged * (Level - 1) * 0.25f);
+        Damanaged = 30 + Mathf.RoundToInt(Damanaged * (Level - 1) * 0.25f);
         CoolDown = 5;
         TimeBack = 2;
         Speed = 10;
@@ -49,6 +49,12 @@ public class Hammer : MonoBehaviour
         timer.Duration(TimeBack);
         timer.run();
         rg2d.velocity = new Vector2(Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad), Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad)) * Speed;
+    }
+
+    public void LevelUp()
+    {
+        Level += 1;
+        Damanaged = 30 + Mathf.RoundToInt(Damanaged * (Level - 1) * 0.25f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -80,6 +86,9 @@ public class Hammer : MonoBehaviour
             {
                 monster.Destroy();
             }
+        } else
+        {
+
         }
     }
 }
