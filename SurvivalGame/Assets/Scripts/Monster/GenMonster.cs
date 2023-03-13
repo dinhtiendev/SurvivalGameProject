@@ -6,10 +6,11 @@ public class GenMonster : MonoBehaviour
 {
     private int levelPlayer;
 
-    private float minX = -36;
-    private float maxX = 36;
-    private float minY = -22;
-    private float maxY = 19;
+    private float minX = -38;
+    private float maxX = 38;
+    private float minY = -25;
+    private float maxY = 23;
+
     private int [] monsterPercentages;
 
     [SerializeField]
@@ -30,7 +31,6 @@ public class GenMonster : MonoBehaviour
 
     public void GenRandomMonster()
     {
-       
         for (int j = 0; j < 10; j++)
         { 
             int randomPercentage = Random.Range(0, 100);
@@ -61,6 +61,7 @@ public class GenMonster : MonoBehaviour
                         x = minX;
                         y = Random.Range(minY, maxY);
                     }
+
                     Instantiate(monsters[i], new Vector2(x, y), Quaternion.identity);
                     break;
                 }
@@ -75,7 +76,7 @@ public class GenMonster : MonoBehaviour
         if (!timer.isRunning())
         {
             GenRandomMonster();
-            timer.Duration(15);
+            timer.Duration(20);
             timer.run();
         }
         }

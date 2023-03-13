@@ -8,6 +8,8 @@ public class Manager : Singleton<Manager>
     public int score;
     public Player playerPrefabs;
     public CinemachineVirtualCamera vsfollow;
+    public HealthBar healthBar;
+    public ExpBar expBar;
     public Player player;
     public FixedJoystick joystick;
     public float zAxis = 0f;
@@ -15,6 +17,10 @@ public class Manager : Singleton<Manager>
         if (player == null)
         {
             player = Instantiate(playerPrefabs, new Vector3(0, 0, 0), Quaternion.identity);
+            player.healthBar = healthBar;
+            player.expBar = expBar;
+            healthBar.SetMaxHealth(player.Health);
+            expBar.SetMaxExp(player.MaxExperience);
         }
         if (joystick == null)
         {

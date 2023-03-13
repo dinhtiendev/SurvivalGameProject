@@ -7,6 +7,12 @@ TagManager:
   - tree
   - player
   - Bullet
+  - monster
+  - tanker
+  - flasher
+  - HealthBar
+  - ExpBar
+  - Shield
   layers:
   - Default
   - TransparentFX

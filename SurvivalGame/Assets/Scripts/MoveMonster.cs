@@ -6,13 +6,13 @@ public class MoveMonster : MonoBehaviour
 {
     public int speed;
 
-    private GameObject player;
+    private Player player;
 
     private float distance;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("player");
+        player = Manager.instance.player;
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class MoveMonster : MonoBehaviour
 
         direction.Normalize();
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
 
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * speed);
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
