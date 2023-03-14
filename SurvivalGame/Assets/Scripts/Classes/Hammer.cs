@@ -49,8 +49,8 @@ public class Hammer : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.Play();
-        timer.Duration(TimeBack);
-        timer.run();
+        timerBack.Duration(TimeBack);
+        timerBack.run();
         rg2d.velocity = new Vector2(Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad), Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad)) * Speed;
     }
 
