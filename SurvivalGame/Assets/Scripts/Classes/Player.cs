@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public Player()
     {
         Health = 50;
-        Speed = 20;
+        Speed = 40;
         Level = 1;
         MaxExperience = 100;
         CurExperience = 0;
