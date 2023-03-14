@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public Player()
     {
         Health = 50;
-        Speed = 50;
+        Speed = 20;
         Level = 1;
         MaxExperience = 100;
         CurExperience = 0;
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
         float zAxis = Mathf.Atan2(hAxis, vAxis) * Mathf.Rad2Deg;
         if (zAxis != 0)
         {
-            audioSource.PlayOneShot(clip);
+            //audioSource.PlayOneShot(clip);
             transform.eulerAngles = new Vector3(0f, 0f, -zAxis);
         }
         rb.MovePosition(rb.position + move * Speed * Time.deltaTime);
@@ -116,7 +116,6 @@ public class Player : MonoBehaviour
 
     public void Destroy()
     {
-        Destroy(gameObject);
         SceneManager.LoadScene("Game Over Screen");
     }
 }

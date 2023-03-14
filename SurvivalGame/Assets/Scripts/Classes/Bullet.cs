@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class Bullet : MonoBehaviour
 {
@@ -16,8 +18,7 @@ public class Bullet : MonoBehaviour
         timer = GetComponent<Timer>();
         rg2d = GetComponent<Rigidbody2D>();
     }
-
-    void Update()
+    private void Update()
     {
         if (!timer.isRunning())
         {
@@ -28,7 +29,7 @@ public class Bullet : MonoBehaviour
     public Bullet()
     {
         Damanaged = 20;
-        Speed = 10 * 5f;
+        Speed = 5f;
     }
 
     public void Move()
@@ -37,7 +38,7 @@ public class Bullet : MonoBehaviour
         audioSource.Play();
         timer.Duration(10f);
         timer.run();
-        rg2d.velocity = new Vector2(Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad), Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad)) * Speed;
+        rg2d.velocity = new Vector2(Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad), Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad)) * 1f;
     }
 
     public void LevelUp()

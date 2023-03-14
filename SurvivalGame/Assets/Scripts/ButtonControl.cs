@@ -50,7 +50,7 @@ public class ButtonControl : MonoBehaviour
     public void Shot()
     {
         Player player = Manager.instance.player;
-        Vector3 pos = new Vector3(player.transform.position.x + Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad), player.transform.position.y + Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad), player.transform.position.z);
+        Vector3 pos = new Vector3(player.transform.position.x + Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad), player.transform.position.y + Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad), 0);
         bullet = Instantiate(bulletPrefabs, pos, Quaternion.identity);
         bullet.Move();
     }
