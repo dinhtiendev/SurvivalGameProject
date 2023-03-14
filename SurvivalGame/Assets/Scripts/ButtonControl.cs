@@ -17,6 +17,7 @@ public class ButtonControl : MonoBehaviour
     private Hammer hammer;
     private Thunder thunder;
     private Shield shield;
+  
 
     public void Shot()
     {

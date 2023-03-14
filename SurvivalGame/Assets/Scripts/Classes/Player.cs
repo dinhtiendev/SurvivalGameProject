@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour
 {
@@ -26,6 +28,8 @@ public class Player : MonoBehaviour
 
     Rigidbody2D rb;
     Vector2 move;
+    public AudioSource audioSource;
+    public AudioClip clip;
 
     void Awake()
     {
@@ -49,6 +53,7 @@ public class Player : MonoBehaviour
 
     public void Move()
     {
+        
         FixedJoystick Joystick = Manager.instance.joystick;
         move.x = Joystick.Horizontal + Input.GetAxis("Horizontal");
         move.y = Joystick.Vertical + Input.GetAxis("Vertical");
@@ -58,6 +63,7 @@ public class Player : MonoBehaviour
         float zAxis = Mathf.Atan2(hAxis, vAxis) * Mathf.Rad2Deg;
         if (zAxis != 0)
         {
+            audioSource.PlayOneShot(clip);
             transform.eulerAngles = new Vector3(0f, 0f, -zAxis);
         }
         rb.MovePosition(rb.position + move * Speed * Time.deltaTime);
@@ -85,5 +91,6 @@ public class Player : MonoBehaviour
     public void Destroy()
     {
         Destroy(gameObject);
+        SceneManager.LoadScene("Game Over Screen");
     }
 }

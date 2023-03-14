@@ -12,7 +12,7 @@ public class Hammer : MonoBehaviour
 
     Timer timer;
     Rigidbody2D rg2d;
-
+    public AudioSource audioSource;
     void Awake()
     {
         timer = GetComponent<Timer>();
@@ -46,6 +46,8 @@ public class Hammer : MonoBehaviour
 
     public void Move()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
         timer.Duration(TimeBack);
         timer.run();
         rg2d.velocity = new Vector2(Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad), Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad)) * Speed;

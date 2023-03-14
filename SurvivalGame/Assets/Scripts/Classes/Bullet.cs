@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
 
     Timer timer;
     Rigidbody2D rg2d;
+    public AudioSource audioSource;
 
     void Awake()
     {
@@ -32,6 +33,8 @@ public class Bullet : MonoBehaviour
 
     public void Move()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
         timer.Duration(10f);
         timer.run();
         rg2d.velocity = new Vector2(Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad), Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad)) * Speed;

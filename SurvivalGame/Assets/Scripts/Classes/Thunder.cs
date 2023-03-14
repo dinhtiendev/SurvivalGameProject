@@ -20,19 +20,22 @@ public class Thunder : MonoBehaviour
         Level = 1;
         
     }
-
+    public AudioSource audioSource;
     public void Display()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
         Rigidbody2D rg2d = GetComponent<Rigidbody2D>();
         timer = GetComponent<Timer>();
-        timer.Duration(0.1f);
+        timer.Duration(0.2f);
         timer.run();
     }
 
     public void Update()
     {
+        
         if (timer != null && !timer.isRunning())
-        {
+        {          
             Destroy(gameObject);
         }
     }

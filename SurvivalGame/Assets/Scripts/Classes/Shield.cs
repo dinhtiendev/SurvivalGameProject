@@ -17,8 +17,12 @@ public class Shield : MonoBehaviour
         Level = 1;
     }
 
+    public AudioSource audioSource;
+    
     public void Display()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
         Rigidbody2D rg2d = GetComponent<Rigidbody2D>();
         Player player = Manager.instance.player;
         PolygonCollider2D collider = player.GetComponent<PolygonCollider2D>();
