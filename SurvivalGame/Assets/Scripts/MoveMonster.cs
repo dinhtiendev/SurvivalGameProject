@@ -28,4 +28,32 @@ public class MoveMonster : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * speed);
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("flasher") ||
+            collision.gameObject.CompareTag("tanker") ||
+            collision.gameObject.CompareTag("monster")||
+            collision.gameObject.CompareTag("Player"))
+        {
+            
+        }
+        else
+        {
+          GetComponent<PolygonCollider2D>().isTrigger = false;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("flasher") ||
+            collision.gameObject.CompareTag("tanker") ||
+            collision.gameObject.CompareTag("monster") ||
+            collision.gameObject.CompareTag("Player"))
+        {
+            GetComponent<PolygonCollider2D>().isTrigger = true;
+        }
+        else
+        {
+            GetComponent<PolygonCollider2D>().isTrigger = false;
+        }
+    }
 }

@@ -42316,6 +42316,7 @@ GameObject:
   - component: {fileID: 1085067072}
   - component: {fileID: 1085067074}
   - component: {fileID: 1085067073}
+  - component: {fileID: 1085067075}
   m_Layer: 0
   m_Name: ButtonControl
   m_TagString: Untagged
@@ -42354,6 +42355,9 @@ MonoBehaviour:
   hammerPrefabs: {fileID: 6009285228596553596, guid: 3427d67919ff77b4a964938d32c0d133, type: 3}
   thunderPrefabs: {fileID: 5881632619438382287, guid: 0c728158f2c19914ca2bc7276f6a4f7b, type: 3}
   shieldPrefabs: {fileID: -6924065547250407528, guid: 8afe76ef7dd6f304c9d82c5af0e92ca8, type: 3}
+  skillHammer: {fileID: 1668261550}
+  skillThunder: {fileID: 451834695}
+  skillShield: {fileID: 368656379}
 --- !u!50 &1085067074
 Rigidbody2D:
   serializedVersion: 4
@@ -42381,6 +42385,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1085067075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085067071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a4e925183f7a894aa6d96b5324800d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1118496838
 GameObject:
   m_ObjectHideFlags: 0
@@ -43363,7 +43379,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c69b85de5f00e43ad9dd7dbb331a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 10
   playerPrefabs: {fileID: -4140704653007069275, guid: f84007b3ecd762b4ea651e832afb9557, type: 3}
   vsfollow: {fileID: 2067802703}
   healthBar: {fileID: 900018359}

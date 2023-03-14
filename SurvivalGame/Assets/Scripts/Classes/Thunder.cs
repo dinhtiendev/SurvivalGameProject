@@ -15,10 +15,9 @@ public class Thunder : MonoBehaviour
 
     public Thunder()
     {
-        Damanaged = 25 * 3;
+        Damanaged = 30;
         CoolDown = 3;
         Level = 1;
-        
     }
     public AudioSource audioSource;
     public void Display()
@@ -38,6 +37,12 @@ public class Thunder : MonoBehaviour
         {          
             Destroy(gameObject);
         }
+    }
+
+    public void LevelUp()
+    {
+        Level += 1;
+        Damanaged = 30 + Mathf.RoundToInt(Damanaged * (Level - 1) * 0.25f);
     }
 
 }

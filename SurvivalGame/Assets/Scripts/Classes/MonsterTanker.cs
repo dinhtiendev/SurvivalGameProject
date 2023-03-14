@@ -21,4 +21,14 @@ public class MonsterTanker : MonoBehaviour
         Manager.instance.player.TakeExp(Exp);
         Destroy(gameObject);
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "Player")
+        {
+            Player player = Manager.instance.player;
+            player.TakeDamage(Damanaged);
+        }
+    }
 }

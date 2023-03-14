@@ -2,16 +2,17 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Manager : Singleton<Manager>
 {
-    public int score;
     public Player playerPrefabs;
     public CinemachineVirtualCamera vsfollow;
     public HealthBar healthBar;
     public ExpBar expBar;
     public Player player;
     public FixedJoystick joystick;
+    
     public float zAxis = 0f;
     void Start() {
         if (player == null)

@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public int Health {get; set;}
-    public int Damanaged {get; set;}
     public int Speed {get; set;}
     public int Level {get; set;}
     public int MaxExperience {get; set;}
@@ -16,11 +15,15 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     public ExpBar expBar;
 
+    private float minX = -38.5f;
+    private float maxX = 37.5f;
+    private float minY = -23.5f;
+    private float maxY = 21.5f;
+
     public Player()
     {
         Health = 50;
-        Damanaged = 25;
-        Speed = 20;
+        Speed = 50;
         Level = 1;
         MaxExperience = 100;
         CurExperience = 0;
@@ -67,25 +70,48 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector3(0f, 0f, -zAxis);
         }
         rb.MovePosition(rb.position + move * Speed * Time.deltaTime);
+        if(gameObject.transform.position.x > maxX) 
+        {
+            gameObject.transform.position = new Vector2(maxX, gameObject.transform.position.y);
+        }
+        if (gameObject.transform.position.y > maxY)
+        {
+            gameObject.transform.position = new Vector2(gameObject.transform.position.x, maxY);
+        }
+        if (gameObject.transform.position.x < minX)
+        {
+            gameObject.transform.position = new Vector2(minX, gameObject.transform.position.y);
+        }
+        if (gameObject.transform.position.y < minY)
+        {
+            gameObject.transform.position = new Vector2(gameObject.transform.position.x, minY);
+        }
     }
 
     public void TakeExp(int exp)
     {
         CurExperience += exp;
+        Debug.Log("Experience: " + CurExperience);
         expBar.SetExp(CurExperience);
     }
 
     public void TakeDamage(int damage)
     {
         Health -= damage;
+        Debug.Log("Health: " + Health);
         healthBar.SetHealth(Health);
     }
 
     public void LevelUp()
     {
         CurExperience -= MaxExperience;
-        expBar.SetExp(CurExperience);
         Level += 1;
+        Debug.Log("Level: " + Level);
+        MaxExperience = 100 + 100 * (Level - 1) * (Level - 1);
+        expBar.SetMaxExp(MaxExperience);
+        expBar.SetExp(CurExperience);
+        Health = Mathf.RoundToInt(50 + 50 * (Level - 1) * 0.25f);
+        healthBar.SetMaxHealth(Health);
     }
 
     public void Destroy()

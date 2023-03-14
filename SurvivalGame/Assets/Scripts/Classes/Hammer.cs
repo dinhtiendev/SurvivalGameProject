@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Hammer : MonoBehaviour
 {
@@ -10,18 +12,18 @@ public class Hammer : MonoBehaviour
     public float Speed {get; set;}
     public int Level {get; set;}
 
-    Timer timer;
+    Timer timerBack;
     Rigidbody2D rg2d;
     public AudioSource audioSource;
     void Awake()
     {
-        timer = GetComponent<Timer>();
+        timerBack = GetComponent<Timer>();
         rg2d = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        if (!timer.isRunning())
+        if (!timerBack.isRunning())
         {
             Vector3 pos = new Vector3(Manager.instance.player.transform.position.x + Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad) * 1.1f, Manager.instance.player.transform.position.y + Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad) * 1.1f, 0);
             rg2d.velocity = new Vector2(0, 0);
@@ -37,11 +39,10 @@ public class Hammer : MonoBehaviour
     public Hammer()
     {
         Level = 1;
-        Damanaged = 15 * 2 + Mathf.RoundToInt(Damanaged * (Level - 1) * 0.25f);
+        Damanaged = 30 + Mathf.RoundToInt(Damanaged * (Level - 1) * 0.25f);
         CoolDown = 5;
         TimeBack = 2;
         Speed = 10;
-        
     }
 
     public void Move()
@@ -51,6 +52,12 @@ public class Hammer : MonoBehaviour
         timer.Duration(TimeBack);
         timer.run();
         rg2d.velocity = new Vector2(Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad), Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad)) * Speed;
+    }
+
+    public void LevelUp()
+    {
+        Level += 1;
+        Damanaged = 30 + Mathf.RoundToInt(Damanaged * (Level - 1) * 0.25f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -82,6 +89,9 @@ public class Hammer : MonoBehaviour
             {
                 monster.Destroy();
             }
+        } else
+        {
+
         }
     }
 }
