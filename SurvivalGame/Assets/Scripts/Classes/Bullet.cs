@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
     public Bullet()
     {
         Damanaged = 20;
-        Speed = 5f;
+        Speed = 10 * 5f;
     }
 
     public void Move()
@@ -38,7 +38,7 @@ public class Bullet : MonoBehaviour
         audioSource.Play();
         timer.Duration(10f);
         timer.run();
-        rg2d.velocity = new Vector2(Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad), Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad)) * 1f;
+        rg2d.velocity = new Vector2(Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad), Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad)) * Speed;
     }
 
     public void LevelUp()
@@ -67,38 +67,6 @@ public class Bullet : MonoBehaviour
                 monster.Destroy();
             }
         } else if (collision.gameObject.CompareTag("monster"))
-        {
-            MonsterX monster = collision.gameObject.GetComponent<MonsterX>();
-            monster.Health -= Damanaged;
-            if (monster.Health <= 0)
-            {
-                monster.Destroy();
-            }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Destroy(gameObject);
-        if (collision.gameObject.CompareTag("flasher"))
-        {
-            MonsterFlash monster = collision.gameObject.GetComponent<MonsterFlash>();
-            monster.Health -= Damanaged;
-            if (monster.Health <= 0)
-            {
-                monster.Destroy();
-            }
-        }
-        else if (collision.gameObject.CompareTag("tanker"))
-        {
-            MonsterTanker monster = collision.gameObject.GetComponent<MonsterTanker>();
-            monster.Health -= Damanaged;
-            if (monster.Health <= 0)
-            {
-                monster.Destroy();
-            }
-        }
-        else if (collision.gameObject.CompareTag("monster"))
         {
             MonsterX monster = collision.gameObject.GetComponent<MonsterX>();
             monster.Health -= Damanaged;

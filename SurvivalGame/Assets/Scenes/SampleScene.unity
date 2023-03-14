@@ -42358,6 +42358,9 @@ MonoBehaviour:
   skillHammer: {fileID: 1668261550}
   skillThunder: {fileID: 451834695}
   skillShield: {fileID: 368656379}
+  timerHammer: {fileID: 1085067075}
+  timerThunder: {fileID: 1085067075}
+  timerShield: {fileID: 1085067075}
 --- !u!50 &1085067074
 Rigidbody2D:
   serializedVersion: 4
