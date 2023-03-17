@@ -97,9 +97,9 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        //Health -= damage;
+        Health -= damage;
         Debug.Log("Health: " + Health);
-        //healthBar.SetHealth(Health);
+        healthBar.SetHealth(Health);
     }
 
     public void LevelUp()
