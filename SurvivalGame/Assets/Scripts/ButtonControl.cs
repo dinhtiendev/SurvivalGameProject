@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,25 +25,34 @@ public class ButtonControl : MonoBehaviour
     public Button skillThunder;
     public Button skillShield;
 
-    Timer timer;
-
+    public Timer timerHammer;
+    public Timer timerThunder;
+    public Timer timerShield;
     private void Awake()
     {
-        timer = GetComponent<Timer>();
+        timerHammer = timerHammer.AddComponent<Timer>();
+        timerThunder = timerThunder.AddComponent<Timer>();
+        timerShield = timerShield.AddComponent<Timer>();
     }
 
     private void Update()
     {
-        if (!timer.isRunning())
+        skillHammer.GetComponentInChildren<Text>().text = "Hammer" + Environment.NewLine + timerHammer.getDu() + "s";
+        skillThunder.GetComponentInChildren<Text>().text = "Thunder" + Environment.NewLine + timerThunder.getDu() + "s";
+        skillShield.GetComponentInChildren<Text>().text = "Shield" + Environment.NewLine + timerShield.getDu() + "s";
+        if (!timerHammer.isRunning())
         {
+            skillHammer.GetComponentInChildren<Text>().text = "Hammer";
             skillHammer.enabled = true;
         }
-        if (!timer.isRunning())
+        if (!timerThunder.isRunning())
         {
+            skillThunder.GetComponentInChildren<Text>().text = "Thunder";
             skillThunder.enabled = true;
         }
-        if (!timer.isRunning())
+        if (!timerShield.isRunning())
         {
+            skillShield.GetComponentInChildren<Text>().text = "Shield";
             skillShield.enabled = true;
         }
     }
@@ -62,7 +72,9 @@ public class ButtonControl : MonoBehaviour
         hammer = Instantiate(hammerPrefabs, pos, Quaternion.identity);
         hammer.transform.rotation = Quaternion.Euler(0f, 0f, -Manager.instance.zAxis);
         hammer.Move();
-        DisableSkill(hammer.CoolDown, skillHammer);
+        skillHammer.enabled = false;
+        timerHammer.Duration(hammer.CoolDown);
+        timerHammer.run();
     }
 
     public void ThunderSkills()
@@ -111,7 +123,9 @@ public class ButtonControl : MonoBehaviour
             thunder.Display();
             if (j == 0)
             {
-                DisableSkill(thunder.CoolDown, skillThunder);
+                skillThunder.enabled = false;
+                timerThunder.Duration(thunder.CoolDown);
+                timerThunder.run();
             }
             
             if (monster[j].GetComponent<MonsterTanker>() != null)
@@ -150,14 +164,9 @@ public class ButtonControl : MonoBehaviour
         Player player = Manager.instance.player;
         shield = Instantiate(shieldPrefabs, player.transform.position, Quaternion.identity);
         shield.Display();
-        DisableSkill(shield.CoolDown, skillShield);
+        skillShield.enabled = false;
+        timerShield.Duration(shield.CoolDown);
+        timerShield.run();
     }
 
-    private void DisableSkill(int time, Button button)
-    {
-        Debug.Log("a");
-        button.enabled = false;
-        timer.Duration(time);
-        timer.run();
-    }
 }
