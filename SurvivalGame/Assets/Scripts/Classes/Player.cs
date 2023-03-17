@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public Player()
     {
         Health = 50;
-        Speed = 40;
+        Speed = 20;
         Level = 1;
         MaxExperience = 100;
         CurExperience = 0;
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
         FixedJoystick Joystick = Manager.instance.joystick;
         move.x = Joystick.Horizontal + Input.GetAxis("Horizontal");
         move.y = Joystick.Vertical + Input.GetAxis("Vertical");
-
+        rb.Sleep();
         float hAxis = move.x;
         float vAxis = move.y;
         float zAxis = Mathf.Atan2(hAxis, vAxis) * Mathf.Rad2Deg;
@@ -97,9 +97,9 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Health -= damage;
+        //Health -= damage;
         Debug.Log("Health: " + Health);
-        healthBar.SetHealth(Health);
+        //healthBar.SetHealth(Health);
     }
 
     public void LevelUp()

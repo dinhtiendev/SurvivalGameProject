@@ -8,6 +8,18 @@ public class MonsterFlash : MonoBehaviour
     public int Damanaged { get; set; }
     public int Speed { get; set; }
     public int Exp { get; set; }
+
+    Rigidbody2D rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        rb.Sleep();
+    }
     public MonsterFlash()
     {
         Health = 20;
