@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MonsterTanker : MonoBehaviour
 {
+    private float lastAttackTime;
+    private const float attackDelay = 2f;
     public int Health { get; set; }
     public int Damanaged { get; set; }
     public int Speed { get; set; }
@@ -35,11 +37,12 @@ public class MonsterTanker : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && Time.time - lastAttackTime > attackDelay)
         {
             Player player = Manager.instance.player;
             player.TakeDamage(Damanaged);
+            lastAttackTime = Time.time;
+
         }
     }
 }
