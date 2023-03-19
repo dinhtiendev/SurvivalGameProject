@@ -31,8 +31,8 @@ public class Player : MonoBehaviour
 
     Rigidbody2D rb;
     Vector2 move;
-    public AudioSource audioSource;
-    public AudioClip clip;
+    //public AudioSource audioSource;
+    //public AudioClip clip;
 
     void Awake()
     {

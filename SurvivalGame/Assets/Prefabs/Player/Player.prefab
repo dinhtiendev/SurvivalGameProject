@@ -262,8 +262,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   expBar: {fileID: 0}
-  audioSource: {fileID: 2715687645811085917}
-  clip: {fileID: 8300000, guid: 35d9170b46a3879409cfd6f7b425e145, type: 3}
 --- !u!82 &2715687645811085917
 AudioSource:
   m_ObjectHideFlags: 0
@@ -271,7 +269,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3317303456715365865}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -108693137864378144, guid: 33f4eca784750bf4ba9dbbc35823756e, type: 2}
   m_audioClip: {fileID: 0}
