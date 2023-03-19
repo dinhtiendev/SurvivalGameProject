@@ -134,6 +134,7 @@ public class ButtonControl : MonoBehaviour
                 m.Health -= thunder.Damanaged;
                 if (m.Health <= 0)
                 {
+                    player.TakeExp(m.Exp);
                     Destroy(monster[j]);
                 }
             }
@@ -143,6 +144,7 @@ public class ButtonControl : MonoBehaviour
                 m.Health -= thunder.Damanaged;
                 if(m.Health <= 0)
                 {
+                    player.TakeExp(m.Exp);
                     Destroy(monster[j]);
                 }
             }
@@ -151,8 +153,10 @@ public class ButtonControl : MonoBehaviour
                 MonsterX m = monster[j].GetComponent<MonsterX>();
                 m.Health -= thunder.Damanaged;
                 if (m.Health <= 0)
-                {
+                { 
+                    player.TakeExp(m.Exp);
                     Destroy(monster[j]);
+                   
                 }
             }
         }
