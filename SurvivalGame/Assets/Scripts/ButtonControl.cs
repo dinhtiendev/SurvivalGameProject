@@ -37,9 +37,9 @@ public class ButtonControl : MonoBehaviour
 
     private void Update()
     {
-        skillHammer.GetComponentInChildren<Text>().text = "Hammer" + Environment.NewLine + timerHammer.getDu() + "s";
-        skillThunder.GetComponentInChildren<Text>().text = "Thunder" + Environment.NewLine + timerThunder.getDu() + "s";
-        skillShield.GetComponentInChildren<Text>().text = "Shield" + Environment.NewLine + timerShield.getDu() + "s";
+        skillHammer.GetComponentInChildren<Text>().text = "Hammer" + Environment.NewLine + timerHammer.getCount() + "s";
+        skillThunder.GetComponentInChildren<Text>().text = "Thunder" + Environment.NewLine + timerThunder.getCount() + "s";
+        skillShield.GetComponentInChildren<Text>().text = "Shield" + Environment.NewLine + timerShield.getCount() + "s";
         if (!timerHammer.isRunning())
         {
             skillHammer.GetComponentInChildren<Text>().text = "Hammer";
@@ -134,6 +134,7 @@ public class ButtonControl : MonoBehaviour
                 m.Health -= thunder.Damanaged;
                 if (m.Health <= 0)
                 {
+                    player.TakeExp(m.Exp);
                     Destroy(monster[j]);
                 }
             }
@@ -143,6 +144,7 @@ public class ButtonControl : MonoBehaviour
                 m.Health -= thunder.Damanaged;
                 if(m.Health <= 0)
                 {
+                    player.TakeExp(m.Exp);
                     Destroy(monster[j]);
                 }
             }
@@ -151,8 +153,10 @@ public class ButtonControl : MonoBehaviour
                 MonsterX m = monster[j].GetComponent<MonsterX>();
                 m.Health -= thunder.Damanaged;
                 if (m.Health <= 0)
-                {
+                { 
+                    player.TakeExp(m.Exp);
                     Destroy(monster[j]);
+                   
                 }
             }
         }
