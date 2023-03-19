@@ -16,9 +16,10 @@ public class MonsterTanker : MonoBehaviour
         Exp = 15;
     }
 
+  
     public void Destroy()
     {
-        Manager.instance.player.TakeExp(Exp);
+        Manager.instance.player.TakeExp(Exp);         
         Destroy(gameObject);
     }
 

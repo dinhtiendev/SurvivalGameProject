@@ -15,11 +15,12 @@ public class MonsterFlash : MonoBehaviour
         Speed = 15;
         Exp = 12;
     }
-
+  
     public void Destroy()
     {
         Manager.instance.player.TakeExp(Exp);
         Destroy(gameObject);
+        
     }
 
     void OnCollisionEnter2D(Collision2D collision)
