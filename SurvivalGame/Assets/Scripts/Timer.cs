@@ -6,17 +6,22 @@ public class Timer : MonoBehaviour
 {
     float elapsedTime = 0;
     bool running;
+    int count;
     float durations = 0;
     // Start is called before the first frame update
     void Start()
     {
-       
+        count = 0;
     }
     public void Duration(float duration)
     {
         durations = duration;
     }
+    public int getCount()
+    {
 
+        return count;
+    }
     public float getDu()
     {
        
@@ -36,8 +41,10 @@ public class Timer : MonoBehaviour
         if (running)
         {
             elapsedTime += Time.deltaTime;
-            if(elapsedTime >= durations)
+            count = (int)(durations - elapsedTime);
+            if (elapsedTime >= durations)
             {
+                
                 elapsedTime = 0;
                 running = false;
             }
