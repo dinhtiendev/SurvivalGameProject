@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     public Player()
     {
         Health = 50;
-        Damanaged = 0;
+        Damanaged = 20;
         Speed = 20;
         Level = 1;
         MaxExperience = 100;
@@ -115,6 +115,7 @@ public class Player : MonoBehaviour
         expBar.SetExp(CurExperience);
         Health = Mathf.RoundToInt(50 + 50 * (Level - 1) * 0.25f);
         healthBar.SetMaxHealth(Health);
+        Damanaged = Mathf.RoundToInt(20 + (Level - 1) * 20 * 0.5f);
     }
 
     public void Destroy()

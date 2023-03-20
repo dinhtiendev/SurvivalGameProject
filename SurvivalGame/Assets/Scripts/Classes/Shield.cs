@@ -12,9 +12,9 @@ public class Shield : MonoBehaviour
 
     public Shield()
     {
-        CoolDown = 5;
-        TimeActive = 3;
-        Level = 1;
+        Level = Manager.instance.levelShield;
+        CoolDown = 10;
+        TimeActive = 3 + (Level - 1);
     }
 
     public AudioSource audioSource;

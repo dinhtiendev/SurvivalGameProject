@@ -38,7 +38,7 @@ public class Hammer : MonoBehaviour
 
     public Hammer()
     {
-        Level = 1;
+        Level = Manager.instance.levelHammer;
         Damanaged = 30 + Mathf.RoundToInt(Damanaged * (Level - 1) * 0.25f);
         CoolDown = 5;
         TimeBack = 2;

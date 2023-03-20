@@ -14,18 +14,34 @@ public class MonsterFlash : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     private void Update()
     {
         rb.Sleep();
+        Move();
     }
     public MonsterFlash()
     {
         Health = 20;
         Damanaged = 4;
-        Speed = 15;
+        Speed = 5;
         Exp = 12;
+    }
+
+    public void Move()
+    {
+        Player player = Manager.instance.player;
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+        Vector2 direction = player.transform.position - transform.position;
+
+        direction.Normalize();
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * Speed);
+        transform.rotation = Quaternion.Euler(Vector3.forward * angle);
     }
 
     public void Destroy()

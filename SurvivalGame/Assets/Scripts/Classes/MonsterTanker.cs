@@ -18,13 +18,28 @@ public class MonsterTanker : MonoBehaviour
     private void Update()
     {
         rb.Sleep();
+        Move();
     }
     public MonsterTanker()
     {
         Health = 40;
         Damanaged = 7;
-        Speed = 5;
+        Speed = 3;
         Exp = 15;
+    }
+
+    public void Move()
+    {
+        Player player = Manager.instance.player;
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+        Vector2 direction = player.transform.position - transform.position;
+
+        direction.Normalize();
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * Speed);
+        transform.rotation = Quaternion.Euler(Vector3.forward * angle);
     }
 
     public void Destroy()
