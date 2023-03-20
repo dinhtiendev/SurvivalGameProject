@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class MonsterTanker : MonoBehaviour
 {
-    private int baseHealth = 40;
-    private int baseDamanaged = 7;
+
     private float lastAttackTime;
     private const float attackDelay = 2f;
     public int Health { get; set; }
@@ -26,10 +25,9 @@ public class MonsterTanker : MonoBehaviour
     }
     public MonsterTanker()
     {
-        Player player = Manager.instance.player;
-        int playerLevel = player.Level;
-        Health = Mathf.RoundToInt(baseHealth + ((playerLevel - 1) * baseDamage * 0.3f));
-        Damanaged = Mathf.RoundToInt(baseDamanaged + ((playerLevel - 1) * baseDamanaged * 0.3f));
+        int level = Manager.instance.player.Level;
+        Health = 40 + Mathf.RoundToInt((level - 1) * 40 * 0.3f);
+        Damanaged = 7 + +Mathf.RoundToInt((level - 1) * 7 * 0.3f);
         Speed = 3;
         Exp = 15;
     }
@@ -50,7 +48,7 @@ public class MonsterTanker : MonoBehaviour
 
     public void Destroy()
     {
-        Manager.instance.player.TakeExp(Exp);         
+        Manager.instance.player.TakeExp(Exp);
         Destroy(gameObject);
     }
 

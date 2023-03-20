@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MonsterFlash : MonoBehaviour
 {
-    private int baseHealth = 20;
-    private int baseDamanaged = 4;
     private float lastAttackTime;
     private const float attackDelay = 2f;
     public int Health { get; set; }
@@ -28,10 +26,9 @@ public class MonsterFlash : MonoBehaviour
     }
     public MonsterFlash()
     {
-        Player player = Manager.instance.player;
-        int playerLevel = player.Level;
-        Health = Mathf.RoundToInt(baseHealth + ((playerLevel - 1) * baseDamage * 0.3f));
-        Damanaged = Mathf.RoundToInt(baseDamanaged + ((playerLevel - 1) * baseDamanaged * 0.3f));
+        int level = Manager.instance.player.Level;
+        Health = 20 + Mathf.RoundToInt((level - 1) * 20 * 0.3f);
+        Damanaged = 4 + +Mathf.RoundToInt((level - 1) * 4 * 0.3f);
         Speed = 5;
         Exp = 12;
     }
@@ -54,7 +51,7 @@ public class MonsterFlash : MonoBehaviour
     {
         Manager.instance.player.TakeExp(Exp);
         Destroy(gameObject);
-        
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -64,8 +61,8 @@ public class MonsterFlash : MonoBehaviour
         {
             Player player = Manager.instance.player;
             player.TakeDamage(Damanaged);
-            lastAttackTime= Time.time;
-            
+            lastAttackTime = Time.time;
+
         }
     }
 }
