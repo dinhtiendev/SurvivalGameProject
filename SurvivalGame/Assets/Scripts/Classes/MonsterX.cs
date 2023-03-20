@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MonsterX : MonoBehaviour
 {
-
+    private int baseHealth = 25;
+    private int baseDamanaged = 5;
     private float lastAttackTime;
     private const float attackDelay = 2f;
     public int Health { get; set; }
@@ -25,9 +26,10 @@ public class MonsterX : MonoBehaviour
     }
     public MonsterX()
     {
-        int level = Manager.instance.player.Level;
-        Health = 25 + Mathf.RoundToInt((level - 1) * 25 * 0.3f);
-        Damanaged = 5 + Mathf.RoundToInt((level - 1) * 5 * 0.3f);
+        Player player = Manager.instance.player;
+        int playerLevel = player.Level;
+        Health = Mathf.RoundToInt(baseHealth + ((playerLevel - 1) * baseDamage * 0.3f));
+        Damanaged = Mathf.RoundToInt(baseDamanaged + ((playerLevel - 1) * baseDamanaged * 0.3f));
         Speed = 3;
         Exp = 10;
     }
