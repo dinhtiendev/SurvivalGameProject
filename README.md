@@ -1,3 +1,3 @@
 # SurvivalGameProject
  
-Đây là dự án làm game sinh tồn nhằm mục đích qua môn!
+Đây là dự án làm endless game môn PRu211m!

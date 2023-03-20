@@ -33,9 +33,10 @@ public class Player : MonoBehaviour
 
     Rigidbody2D rb;
     Vector2 move;
-    public AudioSource audioSource;
-    public AudioClip clip;
-
+    public AudioSource takedamage;
+    public AudioClip damages;
+    public AudioSource monsterdeath;
+    public AudioClip death;
     void Awake()
     {
         transform.position = new Vector3(0, 0, 0);
@@ -68,7 +69,7 @@ public class Player : MonoBehaviour
         float zAxis = Mathf.Atan2(hAxis, vAxis) * Mathf.Rad2Deg;
         if (zAxis != 0)
         {
-            //audioSource.PlayOneShot(clip);
+           
             transform.eulerAngles = new Vector3(0f, 0f, -zAxis);
         }
         rb.MovePosition(rb.position + move * Speed * Time.deltaTime);
@@ -92,6 +93,7 @@ public class Player : MonoBehaviour
 
     public void TakeExp(int exp)
     {
+        monsterdeath.PlayOneShot(death);
         CurExperience += exp;
         Debug.Log("Experience: " + CurExperience);
         expBar.SetExp(CurExperience);
@@ -99,6 +101,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        takedamage.PlayOneShot(damages);
         Health -= damage;
         Debug.Log("Health: " + Health);
         healthBar.SetHealth(Health);
