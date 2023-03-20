@@ -16,7 +16,7 @@ public class Thunder : MonoBehaviour
     public Thunder()
     {
         Level = Manager.instance.levelThunder;
-        Damanaged = Mathf.RoundToInt(30 * 30 * (Level - 1) * 0.2f);
+        Damanaged = Mathf.RoundToInt(30 + 30 * (Level - 1) * 0.2f);
         CoolDown = 3;
     }
     public AudioSource audioSource;
