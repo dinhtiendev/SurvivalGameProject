@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public int Health {get; set;}
+    public int Damanaged { get; set; }
     public int Speed {get; set;}
     public int Level {get; set;}
     public int MaxExperience {get; set;}
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
     public Player()
     {
         Health = 50;
+        Damanaged = 0;
         Speed = 20;
         Level = 1;
         MaxExperience = 100;
@@ -104,6 +106,7 @@ public class Player : MonoBehaviour
 
     public void LevelUp()
     {
+        Manager.instance.showLevelUpSkills();
         CurExperience -= MaxExperience;
         Level += 1;
         Debug.Log("Level: " + Level);

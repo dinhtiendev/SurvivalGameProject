@@ -12,7 +12,14 @@ public class Manager : Singleton<Manager>
     public ExpBar expBar;
     public Player player;
     public FixedJoystick joystick;
-    
+    public int levelHammer;
+    public int levelThunder;
+    public int levelShield;
+
+    public Button levelUpHammer;
+    public Button levelUpThunder;
+    public Button levelUpShield;
+
     public float zAxis = 0f;
     void Start() {
         if (player == null)
@@ -28,6 +35,10 @@ public class Manager : Singleton<Manager>
             joystick = (FixedJoystick)FindObjectOfType(typeof(FixedJoystick));
         }
         vsfollow.Follow = player.transform;
+        levelHammer = 1;
+        levelThunder = 1;
+        levelShield = 1;
+        hideLevelUpSkills();
     }
 
     void Update()
@@ -38,5 +49,19 @@ public class Manager : Singleton<Manager>
         {
             zAxis = Mathf.Atan2(x, y) * Mathf.Rad2Deg;
         }
+    }
+
+    public void showLevelUpSkills()
+    {
+        levelUpHammer.gameObject.SetActive(true);
+        levelUpThunder.gameObject.SetActive(true);
+        levelUpShield.gameObject.SetActive(true);
+    }
+
+    public void hideLevelUpSkills()
+    {
+        levelUpHammer.gameObject.SetActive(false);
+        levelUpThunder.gameObject.SetActive(false);
+        levelUpShield.gameObject.SetActive(false);
     }
 }

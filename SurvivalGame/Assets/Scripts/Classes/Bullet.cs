@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
 
     public Bullet()
     {
-        Damanaged = 20;
+        Damanaged = Manager.instance.player.Damanaged;
         Speed = 10 * 5f;
     }
 
