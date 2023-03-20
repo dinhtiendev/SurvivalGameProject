@@ -26,8 +26,9 @@ public class MonsterFlash : MonoBehaviour
     }
     public MonsterFlash()
     {
-        Health = 20;
-        Damanaged = 4;
+        int level = Manager.instance.player.Level;
+        Health = 20 + Mathf.RoundToInt((level - 1) * 20 * 0.3f);
+        Damanaged = 4 + +Mathf.RoundToInt((level - 1) * 4 * 0.3f);
         Speed = 5;
         Exp = 12;
     }

@@ -24,8 +24,9 @@ public class MonsterTanker : MonoBehaviour
     }
     public MonsterTanker()
     {
-        Health = 40;
-        Damanaged = 7;
+        int level = Manager.instance.player.Level;
+        Health = 40 + Mathf.RoundToInt((level - 1) * 40 * 0.3f);
+        Damanaged = 7 + +Mathf.RoundToInt((level - 1) * 7 * 0.3f);
         Speed = 3;
         Exp = 15;
     }

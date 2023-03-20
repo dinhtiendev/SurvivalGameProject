@@ -25,8 +25,9 @@ public class MonsterX : MonoBehaviour
     }
     public MonsterX()
     {
-        Health = 25;
-        Damanaged = 5;
+        int level = Manager.instance.player.Level;
+        Health = 25 + Mathf.RoundToInt((level - 1) * 25 * 0.3f);
+        Damanaged = 5 + Mathf.RoundToInt((level - 1) * 5 * 0.3f);
         Speed = 3;
         Exp = 10;
     }
