@@ -13,10 +13,14 @@ public class Thunder : MonoBehaviour
 
     private Timer timer;
 
+    private void Awake()
+    {
+        Damanaged = Mathf.RoundToInt(30 + 30 * (Level - 1) * 0.2f);
+    }
     public Thunder()
     {
-        Level = Manager.instance.levelThunder;
-        Damanaged = Mathf.RoundToInt(30 + 30 * (Level - 1) * 0.2f);
+        Level = 1;
+        Damanaged = 30;
         CoolDown = 3;
     }
     public AudioSource audioSource;
@@ -32,7 +36,6 @@ public class Thunder : MonoBehaviour
 
     public void Update()
     {
-        
         if (timer != null && !timer.isRunning())
         {          
             Destroy(gameObject);

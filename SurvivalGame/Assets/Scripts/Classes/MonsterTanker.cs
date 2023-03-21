@@ -16,6 +16,9 @@ public class MonsterTanker : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        int level = Manager.instance.player.Level;
+        Health = 40 + Mathf.RoundToInt((level - 1) * 40 * 0.3f);
+        Damanaged = 7 + +Mathf.RoundToInt((level - 1) * 7 * 0.3f);
     }
 
     private void Update()
@@ -25,9 +28,8 @@ public class MonsterTanker : MonoBehaviour
     }
     public MonsterTanker()
     {
-        int level = Manager.instance.player.Level;
-        Health = 40 + Mathf.RoundToInt((level - 1) * 40 * 0.3f);
-        Damanaged = 7 + +Mathf.RoundToInt((level - 1) * 7 * 0.3f);
+        Health = 40;
+        Damanaged = 7;
         Speed = 3;
         Exp = 15;
     }

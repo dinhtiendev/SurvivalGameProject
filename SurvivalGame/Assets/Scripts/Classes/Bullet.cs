@@ -17,7 +17,9 @@ public class Bullet : MonoBehaviour
     {
         timer = GetComponent<Timer>();
         rg2d = GetComponent<Rigidbody2D>();
+        Damanaged = Manager.instance.player.Damanaged;
     }
+
     private void Update()
     {
         if (!timer.isRunning())
@@ -28,7 +30,7 @@ public class Bullet : MonoBehaviour
 
     public Bullet()
     {
-        Damanaged = Manager.instance.player.Damanaged;
+        Damanaged = 20;
         Speed = 10 * 5f;
     }
 

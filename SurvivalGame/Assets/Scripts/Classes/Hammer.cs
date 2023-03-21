@@ -23,6 +23,8 @@ public class Hammer : MonoBehaviour
 
     void Update()
     {
+        Level = Manager.instance.levelHammer;
+        Damanaged = 30 + Mathf.RoundToInt(Damanaged * (Level - 1) * 0.25f);
         if (!timerBack.isRunning())
         {
             Vector3 pos = new Vector3(Manager.instance.player.transform.position.x + Mathf.Sin(Manager.instance.zAxis * Mathf.Deg2Rad) * 1.1f, Manager.instance.player.transform.position.y + Mathf.Cos(Manager.instance.zAxis * Mathf.Deg2Rad) * 1.1f, 0);
@@ -38,8 +40,8 @@ public class Hammer : MonoBehaviour
 
     public Hammer()
     {
-        Level = Manager.instance.levelHammer;
-        Damanaged = 30 + Mathf.RoundToInt(Damanaged * (Level - 1) * 0.25f);
+        Level = 1;
+        Damanaged = 30;
         CoolDown = 5;
         TimeBack = 2;
         Speed = 10;

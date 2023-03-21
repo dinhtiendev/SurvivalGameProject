@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Shield : MonoBehaviour
@@ -9,10 +10,13 @@ public class Shield : MonoBehaviour
     public int Level {get; set;}
 
     private Timer timer;
-
-    public Shield()
+    void Awake()
     {
         Level = Manager.instance.levelShield;
+    }
+    public Shield()
+    {
+        Level = 1;
         CoolDown = 10;
         TimeActive = 3 + (Level - 1);
     }
