@@ -34,6 +34,9 @@ public class ButtonControl : MonoBehaviour
         timerHammer = timerHammer.AddComponent<Timer>();
         timerThunder = timerThunder.AddComponent<Timer>();
         timerShield = timerShield.AddComponent<Timer>();
+        skillHammer.enabled = false;
+        skillThunder.enabled = false;
+        skillShield.enabled = false;
     }
 
     private void Update()
@@ -42,17 +45,17 @@ public class ButtonControl : MonoBehaviour
         skillHammer.GetComponentInChildren<Text>().text = "Level " + Manager.instance.levelHammer + Environment.NewLine + "Hammer" + Environment.NewLine + timerHammer.getCount() + "s";
         skillThunder.GetComponentInChildren<Text>().text = "Level " + Manager.instance.levelThunder + Environment.NewLine + "Thunder" + Environment.NewLine + timerThunder.getCount() + "s";
         skillShield.GetComponentInChildren<Text>().text = "Level " + Manager.instance.levelHammer + Environment.NewLine + "Shield" + Environment.NewLine + timerShield.getCount() + "s";
-        if (!timerHammer.isRunning())
+        if (!timerHammer.isRunning() && Manager.instance.levelHammer > 0)
         {
             skillHammer.GetComponentInChildren<Text>().text = "Level " + Manager.instance.levelHammer + Environment.NewLine + "Hammer";
             skillHammer.enabled = true;
         }
-        if (!timerThunder.isRunning())
+        if (!timerThunder.isRunning() && Manager.instance.levelThunder > 0)
         {
             skillThunder.GetComponentInChildren<Text>().text = "Level " + Manager.instance.levelThunder + Environment.NewLine + "Thunder";
             skillThunder.enabled = true;
         }
-        if (!timerShield.isRunning())
+        if (!timerShield.isRunning() && Manager.instance.levelShield > 0)
         {
             skillShield.GetComponentInChildren<Text>().text = "Level " + Manager.instance.levelShield + Environment.NewLine + "Shield";
             skillShield.enabled = true;

@@ -36,10 +36,10 @@ public class Manager : Singleton<Manager>
             joystick = (FixedJoystick)FindObjectOfType(typeof(FixedJoystick));
         }
         vsfollow.Follow = player.transform;
-        levelHammer = 1;
-        levelThunder = 1;
-        levelShield = 1;
-        hideLevelUpSkills();
+        levelHammer = 0;
+        levelThunder = 0;
+        levelShield = 0;
+        showLevelUpSkills();
     }
 
     void Update()
