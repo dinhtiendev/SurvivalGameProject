@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MonsterX : MonoBehaviour
 {
-
     private float lastAttackTime;
     private const float attackDelay = 2f;
     public int Health { get; set; }
@@ -50,7 +49,7 @@ public class MonsterX : MonoBehaviour
     {
         Manager.instance.player.TakeExp(Exp);
         Destroy(gameObject);
-        
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)

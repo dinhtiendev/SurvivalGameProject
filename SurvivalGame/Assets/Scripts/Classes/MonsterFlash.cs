@@ -51,7 +51,7 @@ public class MonsterFlash : MonoBehaviour
     {
         Manager.instance.player.TakeExp(Exp);
         Destroy(gameObject);
-        
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -61,8 +61,8 @@ public class MonsterFlash : MonoBehaviour
         {
             Player player = Manager.instance.player;
             player.TakeDamage(Damanaged);
-            lastAttackTime= Time.time;
-            
+            lastAttackTime = Time.time;
+
         }
     }
 }

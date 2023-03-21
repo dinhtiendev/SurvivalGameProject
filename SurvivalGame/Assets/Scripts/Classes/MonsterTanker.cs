@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MonsterTanker : MonoBehaviour
 {
+
     private float lastAttackTime;
     private const float attackDelay = 2f;
     public int Health { get; set; }
@@ -47,7 +48,7 @@ public class MonsterTanker : MonoBehaviour
 
     public void Destroy()
     {
-        Manager.instance.player.TakeExp(Exp);         
+        Manager.instance.player.TakeExp(Exp);
         Destroy(gameObject);
     }
 
