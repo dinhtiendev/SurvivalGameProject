@@ -44011,9 +44011,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsters:
+  - {fileID: 8948089011964930520, guid: 3cd2818ade583424d9bb60558ef37998, type: 3}
   - {fileID: 5766778223195546518, guid: a09eb1dc576034c42b702f05933fa4fa, type: 3}
   - {fileID: 5984932033400519279, guid: 29fd23355d1985641be36744e4da4e3a, type: 3}
-  - {fileID: 8948089011964930520, guid: 3cd2818ade583424d9bb60558ef37998, type: 3}
 --- !u!114 &1507880528
 MonoBehaviour:
   m_ObjectHideFlags: 0
