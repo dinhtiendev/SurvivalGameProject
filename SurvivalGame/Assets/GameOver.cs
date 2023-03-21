@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-public class ContinuePlay : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
-    public string sceneName;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,17 +16,12 @@ public class ContinuePlay : MonoBehaviour
     {
         
     }
-    public void ChangeSceneInContinue()
+    public void Restart()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("SampleScene");
     }
-    public void SaveAndExist()
+    public void Exit()
     {
-        SaveGame.SetData();
         SceneManager.LoadScene("Start Screen");
-    }
-    public void Save()
-    {
-        SaveGame.SetData();
     }
 }
