@@ -21,8 +21,11 @@ public class Manager : Singleton<Manager>
     public Button levelUpShield;
     public bool gameStart = false;
 
+    public int score;
+
     public float zAxis = 0f;
     void Start() {
+        score = 0;
         if (player == null)
         {
             player = Instantiate(playerPrefabs, new Vector3(0, 0, 0), Quaternion.identity);
@@ -36,10 +39,10 @@ public class Manager : Singleton<Manager>
             joystick = (FixedJoystick)FindObjectOfType(typeof(FixedJoystick));
         }
         vsfollow.Follow = player.transform;
-        levelHammer = 1;
-        levelThunder = 1;
-        levelShield = 1;
-        hideLevelUpSkills();
+        levelHammer = 0;
+        levelThunder = 0;
+        levelShield = 0;
+        showLevelUpSkills();
     }
 
     void Update()
