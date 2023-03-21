@@ -28,6 +28,7 @@ public class ButtonControl : MonoBehaviour
     public Timer timerThunder;
     public Timer timerShield;
 
+    public Text lvAndScorePlayer;
     
     private void Awake()
     {
@@ -42,6 +43,7 @@ public class ButtonControl : MonoBehaviour
     private void Update()
     {
         var player = Manager.instance.player;
+        lvAndScorePlayer.text = "Lv: " + player.Level + Environment.NewLine + "Score: " + Manager.instance.score;
         skillHammer.GetComponentInChildren<Text>().text = "Level " + Manager.instance.levelHammer + Environment.NewLine + "Hammer" + Environment.NewLine + timerHammer.getCount() + "s";
         skillThunder.GetComponentInChildren<Text>().text = "Level " + Manager.instance.levelThunder + Environment.NewLine + "Thunder" + Environment.NewLine + timerThunder.getCount() + "s";
         skillShield.GetComponentInChildren<Text>().text = "Level " + Manager.instance.levelHammer + Environment.NewLine + "Shield" + Environment.NewLine + timerShield.getCount() + "s";
@@ -139,6 +141,7 @@ public class ButtonControl : MonoBehaviour
                 m.Health -= thunder.Damanaged;
                 if (m.Health <= 0)
                 {
+                    Manager.instance.score++;
                     player.TakeExp(m.Exp);
                     Destroy(monster[j]);
                 }
@@ -149,6 +152,7 @@ public class ButtonControl : MonoBehaviour
                 m.Health -= thunder.Damanaged;
                 if(m.Health <= 0)
                 {
+                    Manager.instance.score++;
                     player.TakeExp(m.Exp);
                     Destroy(monster[j]);
                 }
@@ -158,7 +162,8 @@ public class ButtonControl : MonoBehaviour
                 MonsterX m = monster[j].GetComponent<MonsterX>();
                 m.Health -= thunder.Damanaged;
                 if (m.Health <= 0)
-                { 
+                {
+                    Manager.instance.score++;
                     player.TakeExp(m.Exp);
                     Destroy(monster[j]);
                    

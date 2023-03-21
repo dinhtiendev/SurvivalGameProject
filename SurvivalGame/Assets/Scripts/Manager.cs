@@ -21,8 +21,11 @@ public class Manager : Singleton<Manager>
     public Button levelUpShield;
     public bool gameStart = false;
 
+    public int score;
+
     public float zAxis = 0f;
     void Start() {
+        score = 0;
         if (player == null)
         {
             player = Instantiate(playerPrefabs, new Vector3(0, 0, 0), Quaternion.identity);
