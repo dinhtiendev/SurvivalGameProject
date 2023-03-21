@@ -74,7 +74,7 @@ public class GenMonster : MonoBehaviour
         // Update is called once per frame
         void Update()
         {
-        if (!timer.isRunning() || getSize() <= 20)
+        if (!timer.isRunning() && getSize() <= 20)
         {
             GenRandomMonster();
             timer.Duration(20);
