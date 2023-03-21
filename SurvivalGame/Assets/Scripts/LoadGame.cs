@@ -7,13 +7,13 @@ using UnityEngine;
 public class LoadGame : MonoBehaviour
 {
     [SerializeField]
-    GameObject monterX;
+    static GameObject monterX;
 
     [SerializeField]
-    GameObject monterFlash;
+    static GameObject monterFlash;
 
     [SerializeField]
-    GameObject monterTanker;
+    static GameObject monterTanker;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,7 @@ public class LoadGame : MonoBehaviour
     {
         
     }
-    public void loadGame(Player player)
+    public static void loadGame(Player player)
     {
 
         if (!File.Exists("data.json"))

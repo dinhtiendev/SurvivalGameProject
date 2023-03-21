@@ -19,6 +19,7 @@ public class Manager : Singleton<Manager>
     public Button levelUpHammer;
     public Button levelUpThunder;
     public Button levelUpShield;
+    public bool gameStart = false;
 
     public float zAxis = 0f;
     void Start() {
@@ -43,6 +44,7 @@ public class Manager : Singleton<Manager>
 
     void Update()
     {
+        
         float x = joystick.Horizontal + Input.GetAxis("Horizontal");
         float y = joystick.Vertical + Input.GetAxis("Vertical");
         if (x != 0 || y != 0)

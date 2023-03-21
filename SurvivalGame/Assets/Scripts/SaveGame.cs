@@ -6,21 +6,11 @@ using UnityEngine;
 using Newtonsoft.Json;
 using UnityEngine.UIElements;
 
-public class SaveGame : MonoBehaviour
+public class SaveGame 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+ 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void createFile()
+    private static void createFile()
     {
         if (!File.Exists("data.json"))
         {
@@ -28,10 +18,10 @@ public class SaveGame : MonoBehaviour
         }
     }
 
-    public void SetData()
+    public static void SetData()
     {
         createFile();
-        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        Player player = Manager.instance.player;
         if(player == null)
         {
             return;
