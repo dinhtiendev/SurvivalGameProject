@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GenMonster : MonoBehaviour
@@ -73,11 +74,30 @@ public class GenMonster : MonoBehaviour
         // Update is called once per frame
         void Update()
         {
-        if (!timer.isRunning())
+        if (!timer.isRunning() && getSize() <= 20)
         {
             GenRandomMonster();
             timer.Duration(20);
             timer.run();
         }
         }
+    public int getSize()
+    {
+        GameObject[] monster = GameObject.FindGameObjectsWithTag("tanker");
+        GameObject[] monster2 = GameObject.FindGameObjectsWithTag("flasher");
+        GameObject[] monster3 = GameObject.FindGameObjectsWithTag("monster");
+        if (monster == null)
+        {
+            monster = new GameObject[0];
+        }
+        if (monster2 != null)
+        {
+            monster = monster.Concat(monster2).ToArray();
+        }
+        if (monster3 != null)
+        {
+            monster = monster.Concat(monster3).ToArray();
+        }
+        return monster == null ? 0 : monster.Length;
+    }
 }
