@@ -9,7 +9,11 @@ public class PropertyMonster
     public int Damanaged { get; set; }
     public int Speed { get; set; }
     public int Exp { get; set; }
+
+    public float PosX { get; set; }
+    public float PosY { get; set; }
     
+    public float rotateZ { get; set; }
 }
 public enum TypeMonster
     {

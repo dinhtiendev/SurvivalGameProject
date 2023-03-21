@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using Newtonsoft.Json;
+using UnityEngine.UIElements;
+
 public class SaveGame : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -78,7 +80,10 @@ public class SaveGame : MonoBehaviour
                     Exp = m.Exp,
                     Health = m.Health,
                     Speed= m.Speed,
-                    typeMonster = TypeMonster.MonsterTanker
+                    typeMonster = TypeMonster.MonsterTanker,
+                    PosX = monster[j].transform.position.x,
+                    PosY = monster[j].transform.position.y,
+                    rotateZ = monster[j].transform.rotation.z,
                 };
               }
             else if (monster[j].GetComponent<MonsterFlash>() != null)
@@ -90,7 +95,10 @@ public class SaveGame : MonoBehaviour
                     Exp = m.Exp,
                     Health = m.Health,
                     Speed = m.Speed,
-                    typeMonster = TypeMonster.MonsterFlash
+                    typeMonster = TypeMonster.MonsterFlash,
+                    PosX = monster[j].transform.position.x,
+                    PosY = monster[j].transform.position.y,
+                    rotateZ = monster[j].transform.rotation.z,
                 };
               }
             else 
@@ -102,7 +110,10 @@ public class SaveGame : MonoBehaviour
                     Exp = m.Exp,
                     Health = m.Health,
                     Speed = m.Speed,
-                    typeMonster = TypeMonster.MonsterX
+                    typeMonster = TypeMonster.MonsterX,
+                    PosX = monster[j].transform.position.x,
+                    PosY = monster[j].transform.position.y,
+                    rotateZ = monster[j].transform.rotation.z,
                 };
               }
             monsters.Add(propertyMonster);
