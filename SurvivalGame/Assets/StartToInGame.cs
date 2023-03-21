@@ -29,7 +29,8 @@ public class StartToInGame : MonoBehaviour
     }
     public void ChangeAndLoadScene()
     {
-        LoadGame.loadGame(Manager.instance.player);
+        Debug.Log(GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Level);
+        //LoadGame.loadGame(Manager.instance.player);
         SceneManager.LoadScene(sceneName);
     }
 

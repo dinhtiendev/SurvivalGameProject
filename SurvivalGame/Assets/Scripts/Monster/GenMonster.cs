@@ -11,7 +11,7 @@ public class GenMonster : MonoBehaviour
     private float maxX = 38;
     private float minY = -25;
     private float maxY = 23;
-
+    private int X = 0;
     private int [] monsterPercentages;
 
     [SerializeField]
@@ -21,6 +21,7 @@ public class GenMonster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        X = 10 + ((Manager.instance.player == null ? 1 : Manager.instance.player.Level) - 1) * 2;
         timer = GetComponent<Timer>();
         timer.Duration(2);
         timer.run();
@@ -32,7 +33,7 @@ public class GenMonster : MonoBehaviour
 
     public void GenRandomMonster()
     {
-        for (int j = 0; j < 10; j++)
+        for (int j = 0; j < X; j++)
         { 
             int randomPercentage = Random.Range(0, 100);
             for (int i = 0; i < monsters.Length; i++)
@@ -74,6 +75,7 @@ public class GenMonster : MonoBehaviour
         // Update is called once per frame
         void Update()
         {
+        X = 10 + ((Manager.instance.player == null ? 1 : Manager.instance.player.Level) - 1) * 2;
         if (!timer.isRunning() && getSize() <= 20)
         {
             GenRandomMonster();

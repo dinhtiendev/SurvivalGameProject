@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    
     public int Health {get; set;}
     public int Damanaged { get; set; }
     public int Speed {get; set;}
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
     public AudioClip death;
     void Awake()
     {
+        
         transform.position = new Vector3(0, 0, 0);
         transform.rotation = Quaternion.identity;
         rb = GetComponent<Rigidbody2D>();

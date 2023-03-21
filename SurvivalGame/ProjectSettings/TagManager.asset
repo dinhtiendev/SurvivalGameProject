@@ -12,6 +12,7 @@ TagManager:
   - HealthBar
   - ExpBar
   - Shield
+  - dontdestroy
   layers:
   - Default
   - TransparentFX

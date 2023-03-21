@@ -20,9 +20,11 @@ public class Manager : Singleton<Manager>
     public Button levelUpThunder;
     public Button levelUpShield;
     public bool gameStart = false;
-
+    [SerializeField]
+    LoadGame loadGame;
     public float zAxis = 0f;
     void Start() {
+        loadGame = GetComponent<LoadGame>();
         if (player == null)
         {
             player = Instantiate(playerPrefabs, new Vector3(0, 0, 0), Quaternion.identity);
@@ -30,6 +32,10 @@ public class Manager : Singleton<Manager>
             player.expBar = expBar;
             healthBar.SetMaxHealth(player.Health);
             expBar.SetMaxExp(player.MaxExperience);
+        }
+        if (ContinuePlay.status == 1)
+        {
+            loadGame.loadGame(player);
         }
         if (joystick == null)
         {

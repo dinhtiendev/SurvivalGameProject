@@ -6,7 +6,7 @@ using UnityEngine;
 using Newtonsoft.Json;
 using UnityEngine.UIElements;
 
-public class SaveGame 
+public class SaveGame : MonoBehaviour
 {
  
 
@@ -18,10 +18,10 @@ public class SaveGame
         }
     }
 
-    public static void SetData()
+    public void SetData()
     {
         createFile();
-        Player player = Manager.instance.player;
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         if(player == null)
         {
             return;

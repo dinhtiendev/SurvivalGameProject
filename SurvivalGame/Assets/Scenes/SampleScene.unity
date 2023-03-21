@@ -42448,6 +42448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 854766565}
   - component: {fileID: 854766566}
+  - component: {fileID: 854766567}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -42483,6 +42484,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Pause Screen
+--- !u!114 &854766567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854766564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23dbd8f63b38dd044a68d1513ef02bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &883215026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43964,6 +43977,7 @@ GameObject:
   - component: {fileID: 1507880527}
   - component: {fileID: 1507880526}
   - component: {fileID: 1507880528}
+  - component: {fileID: 1507880529}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44038,7 +44052,24 @@ MonoBehaviour:
   levelUpHammer: {fileID: 246016588}
   levelUpThunder: {fileID: 57008117}
   levelUpShield: {fileID: 272209547}
+  gameStart: 0
+  loadGame: {fileID: 0}
   zAxis: 0
+--- !u!114 &1507880529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507880524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e1d7b95dc9f0741b94ae597a3f1097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monterX: {fileID: 5984932033400519279, guid: 29fd23355d1985641be36744e4da4e3a, type: 3}
+  monterFlash: {fileID: 5766778223195546518, guid: a09eb1dc576034c42b702f05933fa4fa, type: 3}
+  monterTanker: {fileID: 8948089011964930520, guid: 3cd2818ade583424d9bb60558ef37998, type: 3}
 --- !u!4 &1532508058 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8551773351525900035, guid: 8b1d2b7052353a04ebd1b7f9e8a19c34, type: 3}
