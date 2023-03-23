@@ -46,8 +46,17 @@ public class LoadGame : MonoBehaviour
         player.Speed = data.Speed;
         player.Health = data.Health;
         player.transform.position = new Vector2(data.PosX, data.PosY);
+        Manager.instance.levelShield= data.levelShield;
+        Manager.instance.levelHammer = data.levelHumber;
+        Manager.instance.levelThunder = data.levelThunder;
+        Manager.instance.score = data.score;
 
-        foreach(var monster in data.Monster)
+        if (data.levelShield != 0 || data.levelHumber != 0 || data.levelThunder != 0)
+        {
+            Manager.instance.hideLevelUpSkills();
+        }
+
+        foreach (var monster in data.Monster)
         {
             if(monster.typeMonster.Equals(TypeMonster.MonsterX))
             {

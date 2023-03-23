@@ -26,6 +26,7 @@ public class ContinuePlay : MonoBehaviour
     }
     public void SaveAndExist()
     {
+        ContinuePlay.status = 0;
         SceneManager.LoadScene("Start Screen");
     }
     public void Save()

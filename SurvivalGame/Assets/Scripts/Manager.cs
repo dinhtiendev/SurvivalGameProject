@@ -1,6 +1,8 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,10 +22,14 @@ public class Manager : Singleton<Manager>
     public Button levelUpThunder;
     public Button levelUpShield;
     public bool gameStart = false;
+
+    public int score;
+
     [SerializeField]
     LoadGame loadGame;
     public float zAxis = 0f;
     void Start() {
+        score = 0;
         loadGame = GetComponent<LoadGame>();
         if (player == null)
         {
@@ -33,19 +39,33 @@ public class Manager : Singleton<Manager>
             healthBar.SetMaxHealth(player.Health);
             expBar.SetMaxExp(player.MaxExperience);
         }
-        if (ContinuePlay.status == 1)
+        try
         {
-            loadGame.loadGame(player);
+            if (ContinuePlay.status == 1)
+            {
+                loadGame.loadGame(player);
+                ContinuePlay.status = 0;
+                if (File.Exists("data.json"))
+                {
+                    File.WriteAllText("data.json", string.Empty);
+                }
+            }
+        }catch(Exception e)
+        {
+            if (File.Exists("data.json"))
+            {
+                File.WriteAllText("data.json", string.Empty);
+            }
         }
         if (joystick == null)
         {
             joystick = (FixedJoystick)FindObjectOfType(typeof(FixedJoystick));
         }
         vsfollow.Follow = player.transform;
-        levelHammer = 1;
-        levelThunder = 1;
-        levelShield = 1;
-        hideLevelUpSkills();
+        levelHammer = 0;
+        levelThunder = 0;
+        levelShield = 0;
+        showLevelUpSkills();
     }
 
     void Update()

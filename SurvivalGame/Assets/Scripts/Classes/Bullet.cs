@@ -58,6 +58,7 @@ public class Bullet : MonoBehaviour
             monster.Health -= Damanaged;
             if (monster.Health <= 0)
             {
+                Manager.instance.score++;
                 monster.Destroy();
             }
         } else if (collision.gameObject.CompareTag("tanker"))
@@ -66,6 +67,7 @@ public class Bullet : MonoBehaviour
             monster.Health -= Damanaged;
             if (monster.Health <= 0)
             {
+                Manager.instance.score++;
                 monster.Destroy();
             }
         } else if (collision.gameObject.CompareTag("monster"))
@@ -74,6 +76,7 @@ public class Bullet : MonoBehaviour
             monster.Health -= Damanaged;
             if (monster.Health <= 0)
             {
+                Manager.instance.score++;
                 monster.Destroy();
             }
         }

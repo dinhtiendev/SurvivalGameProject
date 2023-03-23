@@ -26,9 +26,9 @@ public class GenMonster : MonoBehaviour
         timer.Duration(2);
         timer.run();
         monsterPercentages = new int[3];
-        monsterPercentages[0] = 30;//tanker
-        monsterPercentages[1] = 10;//speed 
-        monsterPercentages[2] = 60;//normal 
+        monsterPercentages[0] = 70;//normal
+        monsterPercentages[1] = 20;//speed 
+        monsterPercentages[2] = 10;//tanker 
     }
 
     public void GenRandomMonster()

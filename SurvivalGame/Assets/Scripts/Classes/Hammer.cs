@@ -71,6 +71,7 @@ public class Hammer : MonoBehaviour
             monster.Health -= Damanaged;
             if (monster.Health <= 0)
             {
+                Manager.instance.score++;
                 monster.Destroy();
             }
         }
@@ -80,6 +81,7 @@ public class Hammer : MonoBehaviour
             monster.Health -= Damanaged;
             if (monster.Health <= 0)
             {
+                Manager.instance.score++;
                 monster.Destroy();
             }
         }
@@ -89,6 +91,7 @@ public class Hammer : MonoBehaviour
             monster.Health -= Damanaged;
             if (monster.Health <= 0)
             {
+                Manager.instance.score++;
                 monster.Destroy();
             }
         } else

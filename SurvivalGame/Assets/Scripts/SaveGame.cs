@@ -111,6 +111,15 @@ public class SaveGame : MonoBehaviour
         }
         ///////////////////////////
         propertyPlayer.Monster = monsters;
+        //////////////////////////
+        if (Manager.instance != null)
+        {
+            propertyPlayer.levelHumber = Manager.instance.levelHammer;
+            propertyPlayer.levelThunder = Manager.instance.levelThunder;
+            propertyPlayer.levelShield = Manager.instance.levelShield;
+            propertyPlayer.score= Manager.instance.score;
+        }
+
         string data = JsonConvert.SerializeObject(propertyPlayer);
         File.WriteAllText("data.json", data);
     }

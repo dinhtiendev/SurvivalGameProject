@@ -12,4 +12,9 @@ public class PropertyPlayer
     public float PosX { get; set; }
     public float PosY { get; set; }
     public List<PropertyMonster> Monster { get; set; }
+
+    public int levelHumber { get; set; }
+    public int levelThunder { get; set; }
+    public int levelShield { get; set; }
+    public int score { get; set; }
 }

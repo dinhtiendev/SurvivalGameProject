@@ -6,7 +6,7 @@ public class MonsterTanker : MonoBehaviour
 {
 
     private float lastAttackTime;
-    private const float attackDelay = 2f;
+    private const float attackDelay = 1f;
     public int Health { get; set; }
     public int Damanaged { get; set; }
     public int Speed { get; set; }
