@@ -17,8 +17,8 @@ public class MonsterFlash : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         int level = Manager.instance.player.Level;
-        Health = 20 + Mathf.RoundToInt((level - 1) * 20 * 0.3f);
-        Damanaged = 4 + Mathf.RoundToInt((level - 1) * 4 * 0.3f);
+        Health = 25 + Mathf.RoundToInt((level - 1) * 25 * 0.2f);
+        Damanaged = 5 + Mathf.RoundToInt((level - 1) * 5 * 0.3f);
     }
 
     private void Update()
@@ -28,9 +28,9 @@ public class MonsterFlash : MonoBehaviour
     }
     public MonsterFlash()
     {
-        Health = 20;
-        Damanaged = 4;
-        Speed = 5;
+        Health = 25;
+        Damanaged = 5;
+        Speed = 4;
         Exp = 12;
     }
 
