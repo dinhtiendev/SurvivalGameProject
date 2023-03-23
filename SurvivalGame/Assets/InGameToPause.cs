@@ -21,7 +21,10 @@ public class InGameToPause : MonoBehaviour
 
     }
     public void ChangeScene()
-    {    
+    {
+        dontdestroy.score = Manager.instance.score;
+        dontdestroy.level = Manager.instance.player.Level;
+        
         saveGame.SetData();
         SceneManager.LoadScene(sceneName);
     }

@@ -13,9 +13,10 @@ public class EndGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dontdestroy d =  GameObject.FindGameObjectWithTag("dontdestroy").GetComponent<dontdestroy>();
-        score.text="Level: " + d.level;
-        level.text = "Score: " + d.score;
+       
+        score.text="Score: " + dontdestroy.score;
+        level.text = "Level: " + dontdestroy.level;
+        Debug.Log("score" + dontdestroy.score);
     }
 
     // Update is called once per frame

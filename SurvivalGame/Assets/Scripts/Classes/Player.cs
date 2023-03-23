@@ -125,6 +125,9 @@ public class Player : MonoBehaviour
 
     public void Destroy()
     {
+        
+        dontdestroy.score = Manager.instance.score;
+        dontdestroy.level = Manager.instance.player.Level;
         SceneManager.LoadScene("Game Over Screen");
     }
 }
