@@ -44138,6 +44138,7 @@ MonoBehaviour:
   levelUpShield: {fileID: 272209547}
   gameStart: 0
   score: 0
+  loadGame: {fileID: 0}
   zAxis: 0
 --- !u!114 &1507880529
 MonoBehaviour:

@@ -24,11 +24,13 @@ public class Manager : Singleton<Manager>
     public bool gameStart = false;
 
     public int score;
+    
 
     [SerializeField]
     LoadGame loadGame;
     public float zAxis = 0f;
     void Start() {
+       
         score = 0;
         loadGame = GetComponent<LoadGame>();
         if (player == null)
@@ -41,10 +43,11 @@ public class Manager : Singleton<Manager>
         }
         try
         {
-            if (ContinuePlay.status == 1)
+            if (ContinuePlay.status == 1 || StartToInGame.status == 1)
             {
                 loadGame.loadGame(player);
                 ContinuePlay.status = 0;
+                StartToInGame.status = 0;
                 if (File.Exists("data.json"))
                 {
                     File.WriteAllText("data.json", string.Empty);
