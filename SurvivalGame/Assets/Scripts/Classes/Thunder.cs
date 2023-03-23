@@ -15,13 +15,13 @@ public class Thunder : MonoBehaviour
 
     private void Awake()
     {
-        Damanaged = Mathf.RoundToInt(30 + 30 * (Level - 1) * 0.2f);
+        Damanaged = Mathf.RoundToInt(40 + 40 * (Level - 1) * 0.2f);
     }
     public Thunder()
     {
         Level = 1;
-        Damanaged = 30;
-        CoolDown = 3;
+        Damanaged = 40;
+        CoolDown = 10;
     }
     public AudioSource audioSource;
     public void Display()
@@ -45,7 +45,7 @@ public class Thunder : MonoBehaviour
     public void LevelUp()
     {
         Level += 1;
-        Damanaged = 30 + Mathf.RoundToInt(Damanaged * (Level - 1) * 0.25f);
+        Damanaged = 40 + Mathf.RoundToInt(Damanaged * (Level - 1) * 0.2f);
     }
 
 }

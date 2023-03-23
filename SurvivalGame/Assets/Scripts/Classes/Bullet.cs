@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
     public Bullet()
     {
         Damanaged = 20;
-        Speed = 10 * 5f;
+        Speed = 10 * 2f;
     }
 
     public void Move()

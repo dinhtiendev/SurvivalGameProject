@@ -17,7 +17,7 @@ public class Shield : MonoBehaviour
     public Shield()
     {
         Level = 1;
-        CoolDown = 10;
+        CoolDown = 7;
         TimeActive = 3 + (Level - 1);
     }
 

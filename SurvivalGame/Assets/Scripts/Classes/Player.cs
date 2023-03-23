@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     {
         Health = 50;
         Damanaged = 20;
-        Speed = 20;
+        Speed = 8;
         Level = 1;
         MaxExperience = 100;
         CurExperience = 0;
