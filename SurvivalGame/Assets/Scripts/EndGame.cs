@@ -16,7 +16,6 @@ public class EndGame : MonoBehaviour
        
         score.text="Score: " + dontdestroy.score;
         level.text = "Level: " + dontdestroy.level;
-        Debug.Log("score" + dontdestroy.score);
     }
 
     // Update is called once per frame

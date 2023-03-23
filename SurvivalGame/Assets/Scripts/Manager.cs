@@ -24,13 +24,15 @@ public class Manager : Singleton<Manager>
     public bool gameStart = false;
 
     public int score;
-    
 
     [SerializeField]
     LoadGame loadGame;
     public float zAxis = 0f;
     void Start() {
-       
+        levelHammer = 0;
+        levelThunder = 0;
+        levelShield = 0;
+        showLevelUpSkills();
         score = 0;
         loadGame = GetComponent<LoadGame>();
         if (player == null)
@@ -45,7 +47,8 @@ public class Manager : Singleton<Manager>
         {
             if (ContinuePlay.status == 1 || StartToInGame.status == 1)
             {
-                loadGame.loadGame(player);
+                ButtonControl but = GameObject.FindGameObjectWithTag("buttoncontrol").GetComponent<ButtonControl>();
+                loadGame.loadGame(player,but);
                 ContinuePlay.status = 0;
                 StartToInGame.status = 0;
                 if (File.Exists("data.json"))
@@ -65,10 +68,7 @@ public class Manager : Singleton<Manager>
             joystick = (FixedJoystick)FindObjectOfType(typeof(FixedJoystick));
         }
         vsfollow.Follow = player.transform;
-        levelHammer = 0;
-        levelThunder = 0;
-        levelShield = 0;
-        showLevelUpSkills();
+        
     }
 
     void Update()

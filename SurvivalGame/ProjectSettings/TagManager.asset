@@ -13,6 +13,7 @@ TagManager:
   - ExpBar
   - Shield
   - dontdestroy
+  - buttoncontrol
   layers:
   - Default
   - TransparentFX

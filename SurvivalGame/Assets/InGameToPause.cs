@@ -24,7 +24,6 @@ public class InGameToPause : MonoBehaviour
     {
         dontdestroy.score = Manager.instance.score;
         dontdestroy.level = Manager.instance.player.Level;
-        
         saveGame.SetData();
         SceneManager.LoadScene(sceneName);
     }

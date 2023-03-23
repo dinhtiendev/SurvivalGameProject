@@ -1,13 +1,15 @@
 using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoadGame : MonoBehaviour
 {
     [SerializeField]
-     GameObject monterX;
+    GameObject monterX;
 
     [SerializeField]
     GameObject monterFlash;
@@ -17,15 +19,15 @@ public class LoadGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    public void loadGame(Player player)
+    public void loadGame(Player player, ButtonControl button)
     {
 
         if (!File.Exists("data.json"))
@@ -34,7 +36,7 @@ public class LoadGame : MonoBehaviour
         }
 
         string jsonData = File.ReadAllText("data.json");
-        if(jsonData.Equals(string.Empty))
+        if (jsonData.Equals(string.Empty))
         {
             return;
         }
@@ -46,19 +48,43 @@ public class LoadGame : MonoBehaviour
         player.Speed = data.Speed;
         player.Health = data.Health;
         player.transform.position = new Vector2(data.PosX, data.PosY);
-        Manager.instance.levelShield= data.levelShield;
+        Manager.instance.levelShield = data.levelShield;
         Manager.instance.levelHammer = data.levelHumber;
         Manager.instance.levelThunder = data.levelThunder;
         Manager.instance.score = data.score;
+        Manager.instance.healthBar.SetMaxHealth(50);
+        Manager.instance.healthBar.SetHealth(player.Health);
+        Manager.instance.expBar.SetMaxExp(player.MaxExperience);
+        Manager.instance.expBar.SetExp(player.CurExperience);
 
-        if (data.levelShield != 0 || data.levelHumber != 0 || data.levelThunder != 0)
+        
+        int status = 0;
+        if (data.levelShield != 0)
         {
-            Manager.instance.hideLevelUpSkills();
+            button.skillShield.GetComponentInChildren<Text>().text = "Level " + data.levelShield + Environment.NewLine + "Shield" + Environment.NewLine + "0s";
+            button.skillShield.enabled = false;
+            status = 1;
         }
+        if (data.levelThunder != 0)
+        {
+            button.skillThunder.GetComponentInChildren<Text>().text = "Level " + data.levelThunder + Environment.NewLine + "Thunder" + Environment.NewLine + "0s";
+            button.skillThunder.enabled = false;
+            status = 1;
+        }
+        if (data.levelHumber != 0)
+        {
+            button.skillHammer.GetComponentInChildren<Text>().text = "Level " + data.levelHumber + Environment.NewLine + "Hammer" + Environment.NewLine + "0s";
+            button.skillHammer.enabled = false;
+            status = 1;
+        }
+        
+        if (status == 1)
+            Manager.instance.hideLevelUpSkills();
+
 
         foreach (var monster in data.Monster)
         {
-            if(monster.typeMonster.Equals(TypeMonster.MonsterX))
+            if (monster.typeMonster.Equals(TypeMonster.MonsterX))
             {
                 Instantiate(monterX, new Vector2(monster.PosX, monster.PosY), Quaternion.Euler(0, 0, monster.rotateZ));
             }
